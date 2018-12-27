@@ -14,11 +14,17 @@ module.exports = function(grunt) {
   grunt.config.set('copy', {
     dev: {
       files: [{
-        expand: true,
-        cwd: './assets',
-        src: ['**/*.!(coffee|less)'],
-        dest: '.tmp/public'
-      }]
+          expand: true,
+          cwd: './assets',
+          src: ['**/*.!(coffee|less)'],
+          dest: '.tmp/public'
+        },
+        {
+          expand: true,
+          cwd: './views/build',
+          src: ['**/*.*'],
+          dest: '.tmp/public'
+        }]
     },
     build: {
       files: [{
