@@ -7,6 +7,12 @@ A [Sails v1](https://sailsjs.com) application that allows 2-4 people to play Dur
 Link: https://durak26.herokuapp.com
 
 ### Running locally
+Build the frontend before running:
+```$xslt
+cd frontend
+yarn build
+```
+Start the server:
 ```$xslt
 sails lift
 ```
