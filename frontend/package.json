@@ -7,8 +7,10 @@
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "@types/react-router-dom": "^4.3.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2",
     "typescript": "^3.2.2"
   },
@@ -29,6 +31,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "react-test-renderer": "^16.7.0",
+    "@types/react-test-renderer": "^16.0.3",
     "tslint": "^5.12.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0"

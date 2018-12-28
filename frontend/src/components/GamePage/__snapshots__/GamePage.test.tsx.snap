@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GamePage /> Snapshots renders correctly 1`] = `
+<div>
+  Game page: 
+  someId
+</div>
+`;
