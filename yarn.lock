@@ -2109,6 +2109,13 @@ grunt-legacy-util@~1.0.0:
     underscore.string "~3.2.3"
     which "~1.2.1"
 
+grunt-run@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/grunt-run/-/grunt-run-0.8.1.tgz#502f988947a59f9ad567e2dcb5eeedec712980ec"
+  integrity sha512-+wvoOJevugcjMLldbVCyspRHHntwVIJiTGjx0HFq+UwXhVPe7AaAiUdY4135CS68pAoRLhd7pAILpL2ITe1tmA==
+  dependencies:
+    strip-ansi "^3.0.0"
+
 grunt-sails-linker@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/grunt-sails-linker/-/grunt-sails-linker-0.10.1.tgz#0d2cf5473c03baebb6ce6c1de1e58163d3ac8d06"

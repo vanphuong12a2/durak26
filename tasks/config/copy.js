@@ -13,18 +13,13 @@ module.exports = function (grunt) {
 
   grunt.config.set('copy', {
     dev: {
-      files: [{
-        expand: true,
-        cwd: './assets',
-        src: ['**/*.!(coffee|less)'],
-        dest: '.tmp/public'
-      },
-      {
-        expand: true,
-        cwd: './views/build',
-        src: ['**/*.*'],
-        dest: '.tmp/public'
-      }]
+      files: [
+        {
+          expand: true,
+          cwd: './views/build',
+          src: ['**/*'],
+          dest: '.tmp/public'
+        }]
     },
     build: {
       files: [{
@@ -33,15 +28,7 @@ module.exports = function (grunt) {
         src: ['**/*'],
         dest: 'www'
       }]
-    },
-    beforeLinkBuildProd: {
-      files: [{
-        expand: true,
-        cwd: '.tmp/public/hash',
-        src: ['**/*'],
-        dest: '.tmp/public/dist'
-      }]
-    },
+    }
   });
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
