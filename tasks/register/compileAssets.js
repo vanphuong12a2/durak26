@@ -10,7 +10,6 @@
 module.exports = function(grunt) {
   grunt.registerTask('compileAssets', [
     'clean:dev',
-    'run:buildFrontend',
     'copy:dev'
   ]);
 };
