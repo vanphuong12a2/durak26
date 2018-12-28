@@ -1,7 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<IndexPage /> Snapshots renders correctly 1`] = `
-<div>
-  Index page
-</div>
+Array [
+  <header>
+    <h3>
+      Durak 26
+    </h3>
+  </header>,
+  <div
+    className="newGameButton"
+  >
+    <a
+      className="waves-effect waves-light btn-small"
+      href="/game/1"
+      onClick={[Function]}
+    >
+      New game
+    </a>
+  </div>,
+]
 `;
