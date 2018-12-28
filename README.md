@@ -1,4 +1,4 @@
-# Tan thu 26 [![Build Status](https://travis-ci.org/vanphuong12a2/durak26.svg?branch=master)](https://travis-ci.org/vanphuong12a2/durak26)
+# Durak 26 [![Build Status](https://travis-ci.org/vanphuong12a2/durak26.svg?branch=master)](https://travis-ci.org/vanphuong12a2/durak26)
 
 https://durak26.herokuapp.com
 

@@ -251,7 +251,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://tanthu26.herokuapp.com'
+      'https://durak26.herokuapp.com'
     ],
 
 
