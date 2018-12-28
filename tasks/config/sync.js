@@ -15,7 +15,7 @@ module.exports = function(grunt) {
   grunt.config.set('sync', {
     dev: {
       files: [{
-        cwd: './views/build',
+        cwd: './frontend/build',
         src: ['**/*'],
         dest: '.tmp/public'
       }]

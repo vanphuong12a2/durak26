@@ -19,11 +19,11 @@
     "@sailshq/eslint": "^4.19.3"
   },
   "scripts": {
-    "postinstall": "cd views && yarn install",
+    "postinstall": "cd frontend && yarn install",
     "start": "NODE_ENV=production node app.js",
     "test": "yarn run lint && yarn run custom-tests && echo 'Done.'",
     "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "custom-tests": "cd views && yarn test"
+    "custom-tests": "cd frontend && yarn test"
   },
   "main": "app.js",
   "repository": {
