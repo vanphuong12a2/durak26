@@ -16,3 +16,8 @@ Start the server:
 ```$xslt
 sails lift
 ```
+
+### Notes
+
+The svg files for the cards are from [Byron Knoll](https://commons.wikimedia.org/wiki/Category:Playing_cards_set_by_Byron_Knoll)  
+The svg file for the card back side is from David Bellot (<a href="http://www.gnu.org/licenses/lgpl.html" title="GNU Lesser General Public License">LGPL</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=498450">Link</a>)
