@@ -11,7 +11,7 @@ exports[`<ControlArea /> Snapshots renders correctly 1`] = `
     New game
   </a>
   <a
-    className="waves-effect waves-light  red lighten-2 btn-small"
+    className="waves-effect waves-light red lighten-2 btn-small"
     onClick={[Function]}
   >
     Exit

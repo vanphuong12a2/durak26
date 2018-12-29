@@ -21,7 +21,7 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
         New game
       </a>
       <a
-        className="waves-effect waves-light  red lighten-2 btn-small"
+        className="waves-effect waves-light red lighten-2 btn-small"
         onClick={[Function]}
       >
         Exit
@@ -40,7 +40,7 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       </div>
       <img
         className="card"
-        src="2S.svg"
+        src="2D.svg"
       />
     </div>
     <div

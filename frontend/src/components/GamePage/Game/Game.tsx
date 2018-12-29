@@ -11,6 +11,7 @@ interface Props {
   numberOfCardsToDeal: number
   trumpCard: Card
 }
+
 const Game = (props: Props) => {
   return (
     <div className='game'>
