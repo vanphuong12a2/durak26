@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ControlArea /> Snapshots renders correctly 1`] = `
+<div
+  className="control-area"
+>
+  <a
+    className="waves-effect waves-light btn-small"
+    onClick={[Function]}
+  >
+    New game
+  </a>
+  <a
+    className="waves-effect waves-light  red lighten-2 btn-small"
+    onClick={[Function]}
+  >
+    Exit
+  </a>
+</div>
+`;

@@ -8,7 +8,7 @@ Array [
     </h3>
   </header>,
   <div
-    className="newGameButton"
+    className="new-game"
   >
     <a
       className="waves-effect waves-light btn-small"

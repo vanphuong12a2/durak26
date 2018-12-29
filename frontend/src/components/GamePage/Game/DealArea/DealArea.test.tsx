@@ -1,13 +1,12 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import GamePage from './GamePage';
+import DealArea from './DealArea';
 
-describe('<GamePage />', () => {
+describe('<DealArea />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const match = {params: {gameId: 'someId'}};
-      const app = create(<GamePage match={match}/>);
+      const app = create(<DealArea/>);
       expect(app.toJSON()).toMatchSnapshot();
     });
   });

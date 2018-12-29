@@ -1,0 +1,62 @@
+.game {
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 20px;
+
+  .deal-area {
+    order: 1;
+    flex-basis: 25%;
+  }
+
+  .player-area.top {
+    order: 2;
+    flex-basis: 50%;
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  .control-area {
+    order: 3;
+    flex-basis: 25%;
+  }
+
+  .player-area.left {
+    flex-basis: 25%;
+    order: 4;
+    border: 1px solid black;
+  }
+
+  .table {
+    order: 5;
+    flex-basis: 50%;
+    border: 1px solid black;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    .table-inside {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .player-area.right {
+    flex-basis: 25%;
+    order: 6;
+    border: 1px solid black;
+  }
+
+  .player-area.bottom {
+    flex-basis: 100%;
+    order: 7;
+    border: 1px solid black;
+    text-align: center;
+  }
+}

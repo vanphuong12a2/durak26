@@ -1,12 +1,17 @@
 import React from 'react';
+import Game from './Game/Game';
+import './GamePage.scss';
 
 interface Props {
-  match: {params: {gameId: string}}
+  match: { params: { gameId: string } }
 }
 
 const GamePage = (props: Props) => {
   return (
-    <div>Game page: {props.match.params.gameId}</div>
+    <div className='game-page'>
+      <span>Game ID: #{props.match.params.gameId}</span>
+      <Game/>
+    </div>
   );
 };
 

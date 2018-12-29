@@ -1,13 +1,12 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import GamePage from './GamePage';
+import ControlArea from './ControlArea';
 
-describe('<GamePage />', () => {
+describe('<ControlArea />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const match = {params: {gameId: 'someId'}};
-      const app = create(<GamePage match={match}/>);
+      const app = create(<ControlArea />);
       expect(app.toJSON()).toMatchSnapshot();
     });
   });

@@ -1,13 +1,12 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import GamePage from './GamePage';
+import Table from './Table';
 
-describe('<GamePage />', () => {
+describe('<Table />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const match = {params: {gameId: 'someId'}};
-      const app = create(<GamePage match={match}/>);
+      const app = create(<Table/>);
       expect(app.toJSON()).toMatchSnapshot();
     });
   });

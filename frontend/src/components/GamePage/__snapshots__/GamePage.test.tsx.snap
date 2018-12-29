@@ -1,8 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GamePage /> Snapshots renders correctly 1`] = `
-<div>
-  Game page: 
-  someId
+<div
+  className="game-page"
+>
+  <span>
+    Game ID: #
+    someId
+  </span>
+  <div
+    className="game"
+  >
+    <div
+      className="control-area"
+    >
+      <a
+        className="waves-effect waves-light btn-small"
+        onClick={[Function]}
+      >
+        New game
+      </a>
+      <a
+        className="waves-effect waves-light  red lighten-2 btn-small"
+        onClick={[Function]}
+      >
+        Exit
+      </a>
+    </div>
+    <div
+      className="deal-area"
+    >
+      DealArea
+      <div>
+        Card set
+      </div>
+    </div>
+    <div
+      className="player-area top"
+    >
+      Player 
+      top
+    </div>
+    <div
+      className="player-area left"
+    >
+      Player 
+      left
+    </div>
+    <div
+      className="player-area right"
+    >
+      Player 
+      right
+    </div>
+    <div
+      className="player-area bottom"
+    >
+      Player 
+      bottom
+    </div>
+    <div
+      className="table"
+    >
+      <div
+        className="table-inside"
+      >
+        Table
+      </div>
+    </div>
+  </div>
 </div>
 `;

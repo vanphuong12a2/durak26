@@ -1,13 +1,12 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import GamePage from './GamePage';
+import CardSet from './CardSet';
 
-describe('<GamePage />', () => {
+describe('<CardSet />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const match = {params: {gameId: 'someId'}};
-      const app = create(<GamePage match={match}/>);
+      const app = create(<CardSet cards={[]}/>);
       expect(app.toJSON()).toMatchSnapshot();
     });
   });

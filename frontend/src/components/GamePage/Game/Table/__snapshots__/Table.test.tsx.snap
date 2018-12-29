@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> Snapshots renders correctly 1`] = `
+<div
+  className="table"
+>
+  <div
+    className="table-inside"
+  >
+    Table
+  </div>
+</div>
+`;

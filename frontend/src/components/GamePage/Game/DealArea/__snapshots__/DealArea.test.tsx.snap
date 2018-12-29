@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DealArea /> Snapshots renders correctly 1`] = `
+<div
+  className="deal-area"
+>
+  DealArea
+  <div>
+    Card set
+  </div>
+</div>
+`;
