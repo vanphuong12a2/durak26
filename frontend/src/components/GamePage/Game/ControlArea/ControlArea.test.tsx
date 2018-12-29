@@ -6,8 +6,8 @@ describe('<ControlArea />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const app = create(<ControlArea />);
-      expect(app.toJSON()).toMatchSnapshot();
+      const component = create(<ControlArea />);
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 

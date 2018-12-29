@@ -30,10 +30,18 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
     <div
       className="deal-area"
     >
-      DealArea
-      <div>
-        Card set
+      <div
+        className="card-set"
+      >
+        <img
+          className="card"
+          src="card_back.svg"
+        />
       </div>
+      <img
+        className="card"
+        src="2S.svg"
+      />
     </div>
     <div
       className="player-area top"

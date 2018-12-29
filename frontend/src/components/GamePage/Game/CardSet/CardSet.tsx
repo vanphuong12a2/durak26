@@ -1,26 +1,26 @@
 import React from 'react';
-import {Card} from './Card';
-
-const CardComponent = (props: { card: Card }) => {
-  return (
-    <div>
-      <g id='king_spade'/>
-      ${props.card.id}</div>
-  );
-};
+import {Card, FaceDownCard, FaceUpCard} from './Card/Card';
 
 interface Props {
   cards: Card[]
 }
 
-const CardSet = (props: Props) => {
+const FaceUpCardSet = (props: Props) => {
   return (
-    <div>
-      Card set
-      {props.cards.forEach(card => <CardComponent card={card}/>)}
+    <div className='card-set'>
+      {props.cards.map((card, index) => <FaceUpCard key={index} card={card}/>)}
     </div>
   );
 };
 
+const FaceDownCardSet = (props: { numberOfCards: number }) => {
+  return (
+    <div className='card-set'>
+      {
+        new Array(props.numberOfCards).fill(0).map((value, index) => <FaceDownCard key={index}/>)
+      }
+    </div>
+  );
+};
 
-export default CardSet;
+export {FaceUpCardSet, FaceDownCardSet};

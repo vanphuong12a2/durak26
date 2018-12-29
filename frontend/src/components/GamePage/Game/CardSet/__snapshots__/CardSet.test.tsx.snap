@@ -1,7 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardSet /> Snapshots renders correctly 1`] = `
-<div>
-  Card set
+exports[`<FaceUpCardSet /> Snapshots renders FaceDownCardSet correctly 1`] = `
+<div
+  className="card-set"
+>
+  <img
+    className="card"
+    src="card_back.svg"
+  />
+  <img
+    className="card"
+    src="card_back.svg"
+  />
+  <img
+    className="card"
+    src="card_back.svg"
+  />
+  <img
+    className="card"
+    src="card_back.svg"
+  />
 </div>
+`;
+
+exports[`<FaceUpCardSet /> Snapshots renders FaceUpCardSet correctly 1`] = `
+<div
+  className="card-set"
+/>
 `;

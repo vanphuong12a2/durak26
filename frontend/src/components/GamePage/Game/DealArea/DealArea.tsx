@@ -1,11 +1,18 @@
 import React from 'react';
-import CardSet from '../CardSet/CardSet';
+import {Card, FaceUpCard} from '../CardSet/Card/Card';
+import {FaceDownCardSet} from '../CardSet/CardSet';
+import './DealArea.scss';
 
-const DealArea = () => {
+interface Props {
+  numberOfCardsToDeal: number
+  trumpCard: Card
+}
+
+const DealArea = (props: Props) => {
   return (
     <div className='deal-area'>
-      DealArea
-      <CardSet cards={[]}/>
+      <FaceDownCardSet numberOfCards={props.numberOfCardsToDeal}/>
+      <FaceUpCard card={props.trumpCard}/>
     </div>
   );
 };

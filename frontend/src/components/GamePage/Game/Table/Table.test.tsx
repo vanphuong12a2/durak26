@@ -6,8 +6,8 @@ describe('<Table />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const app = create(<Table/>);
-      expect(app.toJSON()).toMatchSnapshot();
+      const component = create(<Table/>);
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 

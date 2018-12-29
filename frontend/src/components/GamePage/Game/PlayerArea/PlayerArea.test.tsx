@@ -6,8 +6,8 @@ describe('<PlayerArea />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const app = create(<PlayerArea position='top'/>);
-      expect(app.toJSON()).toMatchSnapshot();
+      const component = create(<PlayerArea position='top'/>);
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 

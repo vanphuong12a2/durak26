@@ -7,8 +7,8 @@ describe('<IndexPage />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const app = create(<MemoryRouter><IndexPage/></MemoryRouter>);
-      expect(app.toJSON()).toMatchSnapshot();
+      const component = create(<MemoryRouter><IndexPage/></MemoryRouter>);
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 
