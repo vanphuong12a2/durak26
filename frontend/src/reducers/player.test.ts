@@ -1,7 +1,8 @@
 import player from './player';
 
-describe('game reducer', () => {
+describe('player reducer', () => {
   it('should return the initial state', () => {
-    const playersStore = player(undefined, {type: undefined});
+    const playerStore = player(undefined, {type: undefined});
+    expect(playerStore.players.length).toEqual(0);
   })
 });

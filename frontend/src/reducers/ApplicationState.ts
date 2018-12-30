@@ -12,7 +12,11 @@ export interface PlayerState {
 
 export interface CardState {
   numberOfCardsToDeal: number,
-  trumpCard: Card
+  trumpCard?: Card
   tableCards: Card[]
   playingPlayerCards: Card[]
+}
+
+export interface GameState {
+  playing: boolean
 }

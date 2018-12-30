@@ -10,7 +10,7 @@ import './Game.scss';
 
 export interface GameProps {
   numberOfCardsToDeal: number
-  trumpCard: Card
+  trumpCard?: Card
   tableCards: Card[]
   playingPlayerCards: Card[]
   players: Player[]

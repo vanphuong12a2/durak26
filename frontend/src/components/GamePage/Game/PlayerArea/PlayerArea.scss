@@ -23,10 +23,12 @@
   }
 
   &.top {
+    min-height: 242px;
     padding-bottom: 5px;
   }
 
   &.bottom {
+    min-height: 142px;
     padding-right: 25%;
     padding-left: 25%;
   }

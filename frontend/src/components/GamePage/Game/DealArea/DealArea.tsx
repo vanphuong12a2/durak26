@@ -5,14 +5,14 @@ import './DealArea.scss';
 
 interface Props {
   numberOfCardsToDeal: number
-  trumpCard: Card
+  trumpCard?: Card
 }
 
 const DealArea = (props: Props) => {
   return (
     <div className='deal-area'>
       <FaceDownCardSet numberOfCards={props.numberOfCardsToDeal}/>
-      <FaceUpCard card={props.trumpCard}/>
+      {props.trumpCard && <FaceUpCard card={props.trumpCard}/>}
     </div>
   );
 };
