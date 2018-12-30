@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card, FaceDownCard, FaceUpCard} from './Card/Card';
+import './CardSet.scss';
 
 interface Props {
   cards: Card[]

@@ -5,7 +5,7 @@ interface Action {
 }
 
 const initialState = {
-  numberOfCardsToDeal: 1,
+  numberOfCardsToDeal: 5,
   trumpCard: new Card('2', 'D')
 };
 

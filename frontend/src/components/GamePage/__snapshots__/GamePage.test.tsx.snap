@@ -37,6 +37,22 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
           className="card"
           src="card_back.svg"
         />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
       </div>
       <img
         className="card"
