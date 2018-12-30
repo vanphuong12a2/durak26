@@ -11,7 +11,7 @@ exports[`<Game /> Snapshots renders correctly 1`] = `
       className="waves-effect waves-light btn-small"
       onClick={[Function]}
     >
-      New game
+      Clear game
     </a>
     <a
       className="waves-effect waves-light red lighten-2 btn-small"
@@ -207,7 +207,22 @@ exports[`<Game /> Snapshots renders correctly 1`] = `
     >
       <div
         className="table-content"
-      />
+      >
+        <div
+          className="attack-set"
+        >
+          <div
+            className="card-set"
+          />
+        </div>
+        <div
+          className="defend-set"
+        >
+          <div
+            className="card-set"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>

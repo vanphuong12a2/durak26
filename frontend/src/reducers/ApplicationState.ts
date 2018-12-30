@@ -13,4 +13,5 @@ export interface PlayerState {
 export interface CardState {
   numberOfCardsToDeal: number,
   trumpCard: Card
+  tableCards: Card[]
 }

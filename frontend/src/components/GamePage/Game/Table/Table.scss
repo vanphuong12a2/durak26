@@ -19,6 +19,22 @@
       background-color: #26a69a;
       border-radius: 15px;
       height: 100%;
+      padding: 49px 5px 5px;
+
+      .attack-set {
+        .card:last-child {
+          z-index: 1;
+        }
+      }
+      .defend-set {
+        transform: translateY(-50px);
+
+        &.defending {
+          .card:last-child {
+            visibility: hidden;
+          }
+        }
+      }
     }
   }
 }

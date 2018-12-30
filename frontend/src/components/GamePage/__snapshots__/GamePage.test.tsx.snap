@@ -14,7 +14,7 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
         className="waves-effect waves-light btn-small"
         onClick={[Function]}
       >
-        New game
+        Clear game
       </a>
       <a
         className="waves-effect waves-light red lighten-2 btn-small"
@@ -222,7 +222,88 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       >
         <div
           className="table-content"
-        />
+        >
+          <div
+            className="attack-set"
+          >
+            <div
+              className="card-set"
+            >
+              <img
+                className="card"
+                src="2D.svg"
+              />
+              <img
+                className="card"
+                src="KC.svg"
+              />
+              <img
+                className="card"
+                src="7S.svg"
+              />
+              <img
+                className="card"
+                src="2D.svg"
+              />
+              <img
+                className="card"
+                src="KC.svg"
+              />
+              <img
+                className="card"
+                src="7S.svg"
+              />
+              <img
+                className="card"
+                src="2D.svg"
+              />
+              <img
+                className="card"
+                src="KC.svg"
+              />
+            </div>
+          </div>
+          <div
+            className="defend-set defending"
+          >
+            <div
+              className="card-set"
+            >
+              <img
+                className="card"
+                src="7S.svg"
+              />
+              <img
+                className="card"
+                src="2D.svg"
+              />
+              <img
+                className="card"
+                src="KC.svg"
+              />
+              <img
+                className="card"
+                src="7S.svg"
+              />
+              <img
+                className="card"
+                src="2D.svg"
+              />
+              <img
+                className="card"
+                src="KC.svg"
+              />
+              <img
+                className="card"
+                src="7S.svg"
+              />
+              <img
+                className="card"
+                src="7S.svg"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

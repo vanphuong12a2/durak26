@@ -11,6 +11,7 @@ describe('<Game />', () => {
       const component = create(<Game
         numberOfCardsToDeal={2}
         trumpCard={aCard}
+        tableCards={[]}
         players={[
           new Player(0, 'Luffy', 2),
           new Player(1, 'Sanji', 25),

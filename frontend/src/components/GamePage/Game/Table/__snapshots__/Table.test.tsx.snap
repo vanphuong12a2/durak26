@@ -9,7 +9,40 @@ exports[`<Table /> Snapshots renders correctly 1`] = `
   >
     <div
       className="table-content"
-    />
+    >
+      <div
+        className="attack-set"
+      >
+        <div
+          className="card-set"
+        >
+          <img
+            className="card"
+            src="2D.svg"
+          />
+          <img
+            className="card"
+            src="KC.svg"
+          />
+        </div>
+      </div>
+      <div
+        className="defend-set defending"
+      >
+        <div
+          className="card-set"
+        >
+          <img
+            className="card"
+            src="7S.svg"
+          />
+          <img
+            className="card"
+            src="7S.svg"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

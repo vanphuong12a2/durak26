@@ -3,12 +3,6 @@
   align-items: flex-start;
 
   .card-set {
-    margin-right: 5px;
-    .card {
-      transform: none;
-    }
-  }
-  .card {
-    transform: rotate(90deg);
+    padding-right: 20px;
   }
 }

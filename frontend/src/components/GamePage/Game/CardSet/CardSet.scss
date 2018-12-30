@@ -2,4 +2,5 @@
   display: grid;
   grid-template-columns: repeat(auto-fit,  minmax(0px, max-content)) ;
   z-index: 1;
+  padding-right: 50px;
 }

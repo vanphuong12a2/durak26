@@ -8,13 +8,14 @@ import Table from './Table/Table';
 import './Game.scss';
 
 
-interface Props {
+export interface GameProps {
   numberOfCardsToDeal: number
   trumpCard: Card
+  tableCards: Card[]
   players: Player[]
 }
 
-const Game = (props: Props) => {
+const Game = (props: GameProps) => {
 
   function getPlayerAreas() {
     return new Array(4).fill(0).map((value, index) => {
@@ -43,7 +44,9 @@ const Game = (props: Props) => {
         trumpCard={props.trumpCard}
       />
       {getPlayerAreas()}
-      <Table/>
+      <Table
+        cards={props.tableCards}
+      />
     </div>
   );
 };
