@@ -12,6 +12,7 @@ export interface GameProps {
   numberOfCardsToDeal: number
   trumpCard: Card
   tableCards: Card[]
+  playingPlayerCards: Card[]
   players: Player[]
 }
 
@@ -19,20 +20,14 @@ const Game = (props: GameProps) => {
 
   function getPlayerAreas() {
     return new Array(4).fill(0).map((value, index) => {
-      if (index < props.players.length) {
-        return (
-          <PlayerArea
-            key={index}
-            position={index}
-            player={props.players[index]}
-          />);
-      } else {
-        return (
-          <PlayerArea
-            key={index}
-            position={index}
-          />);
-      }
+      const player = index < props.players.length ? props.players[index] : undefined;
+      return (
+        <PlayerArea
+          key={index}
+          position={index}
+          player={player}
+          playingPlayerCards={props.playingPlayerCards}
+        />);
     });
   }
 

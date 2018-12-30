@@ -9,6 +9,7 @@ const mapStateToProps: (state: ApplicationState) => GameProps =
     numberOfCardsToDeal: state.card.numberOfCardsToDeal,
     trumpCard: state.card.trumpCard,
     tableCards: state.card.tableCards,
+    playingPlayerCards: state.card.playingPlayerCards,
     players: state.player.players
   });
 

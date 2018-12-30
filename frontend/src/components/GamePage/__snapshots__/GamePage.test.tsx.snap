@@ -68,11 +68,15 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       >
         <img
           className="card"
-          src="card_back.svg"
+          src="5H.svg"
         />
         <img
           className="card"
-          src="card_back.svg"
+          src="AS.svg"
+        />
+        <img
+          className="card"
+          src="QC.svg"
         />
       </div>
     </div>
@@ -257,30 +261,6 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
                 className="card"
                 src="KC.svg"
               />
-              <img
-                className="card"
-                src="7S.svg"
-              />
-              <img
-                className="card"
-                src="2D.svg"
-              />
-              <img
-                className="card"
-                src="KC.svg"
-              />
-              <img
-                className="card"
-                src="7S.svg"
-              />
-              <img
-                className="card"
-                src="2D.svg"
-              />
-              <img
-                className="card"
-                src="KC.svg"
-              />
             </div>
           </div>
           <div
@@ -289,30 +269,6 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
             <div
               className="card-set"
             >
-              <img
-                className="card"
-                src="7S.svg"
-              />
-              <img
-                className="card"
-                src="2D.svg"
-              />
-              <img
-                className="card"
-                src="KC.svg"
-              />
-              <img
-                className="card"
-                src="7S.svg"
-              />
-              <img
-                className="card"
-                src="2D.svg"
-              />
-              <img
-                className="card"
-                src="KC.svg"
-              />
               <img
                 className="card"
                 src="7S.svg"

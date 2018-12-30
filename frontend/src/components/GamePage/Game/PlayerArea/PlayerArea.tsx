@@ -1,11 +1,13 @@
 import React from 'react';
 import Player from '../../../../models/Player';
-import {FaceDownCardSet} from '../CardSet/CardSet';
+import Card from '../../../../models/Card';
 import './PlayerArea.scss';
+import {FaceDownCardSet, FaceUpCardSet} from '../CardSet/CardSet';
 
 interface Props {
   position: number
   player?: Player
+  playingPlayerCards: Card[]
 }
 
 const POSITIONS = ['bottom', 'top', 'left', 'right'];
@@ -15,7 +17,11 @@ const PlayerArea = (props: Props) => {
     return (
       <React.Fragment>
         <div className='player-info'>{player.name}</div>
-        <FaceDownCardSet numberOfCards={player.numberOfCards}/>
+        {
+          player.isPlaying ?
+            <FaceUpCardSet cards={props.playingPlayerCards}/> :
+            <FaceDownCardSet numberOfCards={player.numberOfCards}/>
+        }
       </React.Fragment>
     )
   };

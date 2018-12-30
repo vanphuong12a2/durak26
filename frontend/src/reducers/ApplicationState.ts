@@ -8,11 +8,11 @@ export interface ApplicationState {
 
 export interface PlayerState {
   players: Player[]
-  currentPlayer?: Player
 }
 
 export interface CardState {
   numberOfCardsToDeal: number,
   trumpCard: Card
   tableCards: Card[]
+  playingPlayerCards: Card[]
 }

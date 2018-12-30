@@ -22,6 +22,10 @@
     transform: rotate(90deg);
   }
 
+  &.top {
+    padding-bottom: 5px;
+  }
+
   &.bottom {
     padding-right: 25%;
     padding-left: 25%;
