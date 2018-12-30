@@ -1,18 +1,13 @@
 import React from 'react';
 import Game from '../components/GamePage/Game/Game';
 import {connect} from 'react-redux';
-import {Card} from '../components/GamePage/Game/CardSet/Card/Card';
+import {ApplicationState} from '../reducers/ApplicationState';
 
-interface State {
-  game: {
-    numberOfCardsToDeal: number,
-    trumpCard: Card
-  }
-}
 
-const mapStateToProps = (state: State) => ({
-  numberOfCardsToDeal: state.game.numberOfCardsToDeal,
-  trumpCard: state.game.trumpCard
+const mapStateToProps = (state: ApplicationState) => ({
+  numberOfCardsToDeal: state.card.numberOfCardsToDeal,
+  trumpCard: state.card.trumpCard,
+  players: state.player.players
 });
 
 export default connect(mapStateToProps, null)(Game);

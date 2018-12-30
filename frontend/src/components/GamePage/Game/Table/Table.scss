@@ -1,0 +1,24 @@
+.table {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 60%;
+  }
+
+  .table-inside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+
+    .table-content {
+      background-color: #26a69a;
+      border-radius: 15px;
+      height: 100%;
+    }
+  }
+}

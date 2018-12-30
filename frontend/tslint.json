@@ -4,7 +4,9 @@
     "no-console": [false],
     "ordered-imports": [false],
     "quotemark": [true, "single"],
-    "interface-name": [false]
+    "interface-name": [false],
+    "object-literal-sort-keys": [false],
+    "no-namespace": false
   },
   "linterOptions": {
     "exclude": [

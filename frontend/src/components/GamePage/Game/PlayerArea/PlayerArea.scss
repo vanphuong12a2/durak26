@@ -1,0 +1,24 @@
+.player-area {
+  align-self: center;
+
+  .card-set {
+    padding-right: 50px;
+    max-width: 80%;
+    margin: auto;
+    justify-content: center;
+  }
+
+  &.left .card-set {
+    padding-bottom: 50%;
+    transform: rotate(90deg);
+  }
+
+  &.right .card-set {
+    padding-top: 50%;
+    transform: rotate(90deg);
+  }
+
+  &.bottom .card-set{
+    max-width: 45%;
+  }
+}

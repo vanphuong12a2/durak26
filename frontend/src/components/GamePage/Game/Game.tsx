@@ -1,18 +1,40 @@
 import React from 'react';
 import ControlArea from './ControlArea/ControlArea';
 import DealArea from './DealArea/DealArea';
-import Table from './Table/Table';
 import PlayerArea from './PlayerArea/PlayerArea';
-import {Card} from './CardSet/Card/Card';
+import Player from '../../../models/Player';
+import Card from '../../../models/Card';
+import Table from './Table/Table';
 import './Game.scss';
 
 
 interface Props {
   numberOfCardsToDeal: number
   trumpCard: Card
+  players: Player[]
 }
 
 const Game = (props: Props) => {
+
+  function getPlayerAreas() {
+    return new Array(4).fill(0).map((value, index) => {
+      if (index < props.players.length) {
+        return (
+          <PlayerArea
+            key={index}
+            position={index}
+            player={props.players[index]}
+          />);
+      } else {
+        return (
+          <PlayerArea
+            key={index}
+            position={index}
+          />);
+      }
+    });
+  }
+
   return (
     <div className='game'>
       <ControlArea/>
@@ -20,10 +42,7 @@ const Game = (props: Props) => {
         numberOfCardsToDeal={props.numberOfCardsToDeal}
         trumpCard={props.trumpCard}
       />
-      <PlayerArea position='top'/>
-      <PlayerArea position='left'/>
-      <PlayerArea position='right'/>
-      <PlayerArea position='bottom'/>
+      {getPlayerAreas()}
       <Table/>
     </div>
   );

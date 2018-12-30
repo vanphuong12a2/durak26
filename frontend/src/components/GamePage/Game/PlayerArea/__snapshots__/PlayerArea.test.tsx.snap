@@ -1,10 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PlayerArea /> Snapshots renders correctly 1`] = `
+exports[`<PlayerArea /> Snapshots renders empty player area correctly 1`] = `
 <div
-  className="player-area top"
+  className="player-area bottom"
+/>
+`;
+
+exports[`<PlayerArea /> Snapshots renders player area with cards correctly 1`] = `
+<div
+  className="player-area bottom"
 >
-  Player 
-  top
+  <div
+    className="card-set"
+  >
+    <img
+      className="card"
+      src="card_back.svg"
+    />
+    <img
+      className="card"
+      src="card_back.svg"
+    />
+  </div>
 </div>
 `;

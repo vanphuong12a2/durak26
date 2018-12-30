@@ -4,10 +4,6 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
 <div
   className="game-page"
 >
-  <span>
-    Game ID: #
-    someId
-  </span>
   <div
     className="game"
   >
@@ -60,28 +56,163 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       />
     </div>
     <div
+      className="player-area bottom"
+    >
+      <div
+        className="card-set"
+      >
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+      </div>
+    </div>
+    <div
       className="player-area top"
     >
-      Player 
-      top
+      <div
+        className="card-set"
+      >
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+      </div>
     </div>
     <div
       className="player-area left"
     >
-      Player 
-      left
+      <div
+        className="card-set"
+      >
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+        <img
+          className="card"
+          src="card_back.svg"
+        />
+      </div>
     </div>
     <div
       className="player-area right"
     >
-      Player 
-      right
-    </div>
-    <div
-      className="player-area bottom"
-    >
-      Player 
-      bottom
+      <div
+        className="card-set"
+      />
     </div>
     <div
       className="table"
@@ -89,9 +220,15 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       <div
         className="table-inside"
       >
-        Table
+        <div
+          className="table-content"
+        />
       </div>
     </div>
   </div>
+  <span>
+    Game ID: #
+    someId
+  </span>
 </div>
 `;

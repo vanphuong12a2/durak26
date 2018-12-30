@@ -1,10 +1,11 @@
 import React from 'react';
+import './Table.scss';
 
 const Table = () => {
   return (
     <div className='table'>
       <div className='table-inside'>
-        Table
+        <div className='table-content' />
       </div>
     </div>
   );

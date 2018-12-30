@@ -1,12 +1,23 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
 import PlayerArea from './PlayerArea';
+import Player from '../../../../models/Player';
 
 describe('<PlayerArea />', () => {
 
   describe('Snapshots', () => {
-    it('renders correctly', () => {
-      const component = create(<PlayerArea position='top'/>);
+    it('renders empty player area correctly', () => {
+      const component = create(<PlayerArea
+        position={0}
+      />);
+      expect(component.toJSON()).toMatchSnapshot();
+    });
+
+    it('renders player area with cards correctly', () => {
+      const component = create(<PlayerArea
+        position={0}
+        player={new Player(1, 'Luffy', 2)}
+      />);
       expect(component.toJSON()).toMatchSnapshot();
     });
   });
