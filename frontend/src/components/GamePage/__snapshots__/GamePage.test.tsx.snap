@@ -59,6 +59,11 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       className="player-area bottom"
     >
       <div
+        className="player-info"
+      >
+        Luffy
+      </div>
+      <div
         className="card-set"
       >
         <img
@@ -74,6 +79,11 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
     <div
       className="player-area top"
     >
+      <div
+        className="player-info"
+      >
+        Sanji
+      </div>
       <div
         className="card-set"
       >
@@ -183,6 +193,11 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       className="player-area left"
     >
       <div
+        className="player-info"
+      >
+        Nami
+      </div>
+      <div
         className="card-set"
       >
         <img
@@ -210,6 +225,11 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
     <div
       className="player-area right"
     >
+      <div
+        className="player-info"
+      >
+        Robin
+      </div>
       <div
         className="card-set"
       />

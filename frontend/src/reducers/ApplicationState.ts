@@ -8,6 +8,7 @@ export interface ApplicationState {
 
 export interface PlayerState {
   players: Player[]
+  currentPlayer?: Player
 }
 
 export interface CardState {

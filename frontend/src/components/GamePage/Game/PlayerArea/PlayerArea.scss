@@ -7,9 +7,14 @@
     justify-content: center;
   }
 
-  &.left .card-set {
-    padding-bottom: 50%;
-    transform: rotate(90deg);
+  &.left {
+    .player-info {
+      text-align: right;
+    }
+    .card-set {
+      padding-bottom: 50%;
+      transform: rotate(90deg);
+    }
   }
 
   &.right .card-set {
@@ -17,7 +22,8 @@
     transform: rotate(90deg);
   }
 
-  &.bottom .card-set{
-    max-width: 45%;
+  &.bottom {
+    padding-right: 25%;
+    padding-left: 25%;
   }
 }

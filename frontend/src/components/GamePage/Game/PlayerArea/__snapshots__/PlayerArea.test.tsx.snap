@@ -11,6 +11,11 @@ exports[`<PlayerArea /> Snapshots renders player area with cards correctly 1`] =
   className="player-area bottom"
 >
   <div
+    className="player-info"
+  >
+    Luffy
+  </div>
+  <div
     className="card-set"
   >
     <img

@@ -8,11 +8,23 @@ interface Props {
   player?: Player
 }
 
-const POSITIONS = ['bottom', 'top', 'left', 'right']
+const POSITIONS = ['bottom', 'top', 'left', 'right'];
 const PlayerArea = (props: Props) => {
+
+  const areaWithPlayer = (player: Player) => {
+    return (
+      <React.Fragment>
+        <div className='player-info'>{player.name}</div>
+        <FaceDownCardSet numberOfCards={player.numberOfCards}/>
+      </React.Fragment>
+    )
+  };
+
+  const areaWithoutPlayer = <React.Fragment/>;
+
   return (
     <div className={`player-area ${POSITIONS[props.position]}`}>
-      {props.player ? <FaceDownCardSet numberOfCards={props.player.numberOfCards}/> : <React.Fragment/>}
+      {props.player ? areaWithPlayer(props.player) : areaWithoutPlayer}
     </div>
   );
 };
