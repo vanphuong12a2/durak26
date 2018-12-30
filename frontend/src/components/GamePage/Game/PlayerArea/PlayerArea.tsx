@@ -8,6 +8,7 @@ interface Props {
   position: number
   player?: Player
   playingPlayerCards: Card[]
+  playingPlayerId?: number
 }
 
 const POSITIONS = ['bottom', 'top', 'left', 'right'];
@@ -18,7 +19,7 @@ const PlayerArea = (props: Props) => {
       <React.Fragment>
         <div className='player-info'>{player.name}</div>
         {
-          player.isPlaying ?
+          props.playingPlayerId === player.id ?
             <FaceUpCardSet cards={props.playingPlayerCards}/> :
             <FaceDownCardSet numberOfCards={player.numberOfCards}/>
         }

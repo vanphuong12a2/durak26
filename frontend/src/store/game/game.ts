@@ -1,4 +1,4 @@
-import {GameState} from './ApplicationState';
+import {GameState} from '../ApplicationState';
 
 interface Action {
   type: any

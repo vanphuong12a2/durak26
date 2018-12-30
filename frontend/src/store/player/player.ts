@@ -1,11 +1,12 @@
-import {PlayerState} from './ApplicationState';
+import {PlayerState} from '../ApplicationState';
 
 interface Action {
   type: any
 }
 
 const initialState: PlayerState = {
-  players: []
+  players: [],
+  playingPlayerId: undefined
 };
 
 const player = (state: PlayerState = initialState, action: Action) => {

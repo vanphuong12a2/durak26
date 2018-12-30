@@ -1,4 +1,4 @@
-import {CardState} from './ApplicationState';
+import {CardState} from '../ApplicationState';
 
 interface Action {
   type: any

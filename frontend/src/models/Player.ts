@@ -10,7 +10,6 @@ class Player {
   public numberOfCards: number;
   public inTurn: boolean = false;
   public position: Position = Position.NONE;
-  public isPlaying: boolean = false;
 
   constructor(id: number, name: string, numberOfCards: number) {
     this.id = id;

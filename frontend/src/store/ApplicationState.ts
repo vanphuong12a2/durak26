@@ -4,10 +4,12 @@ import Card from '../models/Card';
 export interface ApplicationState {
   card: CardState
   player: PlayerState
+  game: GameState
 }
 
 export interface PlayerState {
   players: Player[]
+  playingPlayerId?: number
 }
 
 export interface CardState {

@@ -4,7 +4,7 @@ import GameContainer from './GameContainer';
 import Game from '../components/GamePage/Game/Game';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import rootReducer from '../reducers';
+import rootReducer from '../store/index';
 
 const store = createStore(rootReducer);
 

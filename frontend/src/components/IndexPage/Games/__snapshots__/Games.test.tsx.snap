@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Games /> Snapshots renders correctly 1`] = `
+<div
+  className="new-game"
+>
+  <a
+    className="waves-effect waves-light btn-small"
+    onClick={[Function]}
+  >
+    New game
+  </a>
+</div>
+`;
+
+exports[`<Games /> Snapshots renders playing game correctly 1`] = `
+<div
+  className="new-game"
+>
+  <a
+    className="waves-effect waves-light btn-small"
+    onClick={[Function]}
+  >
+    New game
+  </a>
+</div>
+`;

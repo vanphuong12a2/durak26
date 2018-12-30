@@ -14,6 +14,7 @@ export interface GameProps {
   tableCards: Card[]
   playingPlayerCards: Card[]
   players: Player[]
+  playingPlayerId?: number
 }
 
 const Game = (props: GameProps) => {
@@ -27,6 +28,7 @@ const Game = (props: GameProps) => {
           position={index}
           player={player}
           playingPlayerCards={props.playingPlayerCards}
+          playingPlayerId={props.playingPlayerId}
         />);
     });
   }

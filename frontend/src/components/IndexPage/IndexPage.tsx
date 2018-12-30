@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import GamesContainer from '../../containers/GamesContainer';
 import './IndexPage.scss';
 
 const IndexPage = () => {
@@ -8,9 +8,7 @@ const IndexPage = () => {
       <header>
         <h3>Durak 26</h3>
       </header>
-      <div className='new-game'>
-        <Link className='waves-effect waves-light btn-small' to='/game/1'>New game</Link>
-      </div>
+      <GamesContainer />
     </React.Fragment>
   );
 };

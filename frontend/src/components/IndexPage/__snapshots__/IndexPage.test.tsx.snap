@@ -12,7 +12,6 @@ Array [
   >
     <a
       className="waves-effect waves-light btn-small"
-      href="/game/1"
       onClick={[Function]}
     >
       New game
