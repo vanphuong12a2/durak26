@@ -4,7 +4,7 @@ import IndexPage from './components/IndexPage/IndexPage';
 import GamePage from './components/GamePage/GamePage';
 
 const AppRouter = () => (
-  <Router>
+  <Router forceRefresh={true}>
     <div>
       <Route path='/' exact={true} component={IndexPage}/>
       <Route path='/play/:gameId' component={GamePage}/>
