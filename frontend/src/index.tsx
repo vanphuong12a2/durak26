@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
+import {createLogger} from 'redux-logger';
 import * as serviceWorker from './serviceWorker';
 import AppRouter from './AppRouter';
-import {applyMiddleware, createStore} from 'redux';
+import {applyMiddleware, createStore, Middleware} from 'redux';
 import rootReducer from './store/index';
 import {Provider} from 'react-redux';
 
-const loggerMiddleware = createLogger();
+let middleware: Middleware[] = [thunkMiddleware];
+
+if (process.env.NODE_ENV !== 'production') {
+  const loggerMiddleware = createLogger();
+  middleware = [...middleware, loggerMiddleware];
+}
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
-  )
+  applyMiddleware(...middleware)
 );
 
 ReactDOM.render(
