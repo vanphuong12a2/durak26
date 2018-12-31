@@ -10,7 +10,7 @@ const initialState: CardState = {
   playingPlayerCards: []
 };
 
-const card = (state: CardState = initialState, action: Action) => {
+const cardReducer = (state: CardState = initialState, action: Action) => {
   switch (action.type) {
     default: {
       return state;
@@ -18,4 +18,4 @@ const card = (state: CardState = initialState, action: Action) => {
   }
 };
 
-export default card;
+export default cardReducer;

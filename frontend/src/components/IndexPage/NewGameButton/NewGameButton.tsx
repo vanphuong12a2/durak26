@@ -1,6 +1,6 @@
 import React from 'react';
-import './Games.scss';
 import {RouteComponentProps} from 'react-router-dom';
+import './NewGameButton.scss';
 
 export interface GamesProps {
   gameId?: number
@@ -9,7 +9,7 @@ export interface GamesProps {
   newGameButtonOnClick: () => any
 }
 
-const Games = (props: GamesProps & RouteComponentProps) => {
+const NewGameButton = (props: GamesProps & RouteComponentProps) => {
 
   if (props.error) {
     return (<div className='error'>There is an error!</div>)
@@ -30,4 +30,4 @@ const Games = (props: GamesProps & RouteComponentProps) => {
   );
 };
 
-export default Games;
+export default NewGameButton;

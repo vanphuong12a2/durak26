@@ -15,7 +15,11 @@ Start the server:
 ./start.sh
 ```
 
-or `sails lift` to skip building frontend
+## For development:
+- Run `sails lift` to start the backend server on port 1337
+- Run `yarn start` to start the frontend server on port 3000
+- Open `http://localhost:3000`, request to the backend will be proxied (config in `frontend/package.json`)
+
 
 ### Notes
 

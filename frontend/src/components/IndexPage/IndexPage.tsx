@@ -1,5 +1,6 @@
 import React from 'react';
-import GamesContainer from '../../containers/GamesContainer';
+import NewGameButtonContainer from '../../containers/NewGameButtonContainer';
+
 import './IndexPage.scss';
 
 const IndexPage = () => {
@@ -8,7 +9,7 @@ const IndexPage = () => {
       <header>
         <h3>Durak 26</h3>
       </header>
-      <GamesContainer />
+      <NewGameButtonContainer />
     </React.Fragment>
   );
 };

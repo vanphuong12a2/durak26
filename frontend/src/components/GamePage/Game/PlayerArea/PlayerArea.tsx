@@ -8,7 +8,7 @@ interface Props {
   position: number
   player?: Player
   playingPlayerCards: Card[]
-  playingPlayerId?: number
+  playingPlayerId?: string
 }
 
 const POSITIONS = ['bottom', 'top', 'left', 'right'];

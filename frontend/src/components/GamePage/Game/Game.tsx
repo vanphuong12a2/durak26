@@ -9,43 +9,60 @@ import './Game.scss';
 
 
 export interface GameProps {
+  gameId: string
+  loading: boolean
+  error?: Error
   numberOfCardsToDeal: number
   trumpCard?: Card
   tableCards: Card[]
   playingPlayerCards: Card[]
   players: Player[]
-  playingPlayerId?: number
+  playingPlayerId?: string
+  loadGameFunction: (gameId: string) => void
 }
 
-const Game = (props: GameProps) => {
+class Game extends React.Component<GameProps> {
 
-  function getPlayerAreas() {
+  public componentDidMount() {
+    this.props.loadGameFunction(this.props.gameId);
+  }
+
+  public render = () => {
+    if(this.props.loading) {
+      return (<div>Loading...</div>);
+    }
+
+    if(this.props.error) {
+      return (<div>There is an error!</div>);
+    }
+    return (
+      <div className='game'>
+        <ControlArea/>
+        <DealArea
+          numberOfCardsToDeal={this.props.numberOfCardsToDeal}
+          trumpCard={this.props.trumpCard}
+        />
+        {this.getPlayerAreas()}
+        <Table
+          cards={this.props.tableCards}
+        />
+      </div>
+    );
+  };
+
+  private getPlayerAreas() {
     return new Array(4).fill(0).map((value, index) => {
-      const player = index < props.players.length ? props.players[index] : undefined;
+      const player = index < this.props.players.length ? this.props.players[index] : undefined;
       return (
         <PlayerArea
           key={index}
           position={index}
           player={player}
-          playingPlayerCards={props.playingPlayerCards}
-          playingPlayerId={props.playingPlayerId}
+          playingPlayerCards={this.props.playingPlayerCards}
+          playingPlayerId={this.props.playingPlayerId}
         />);
     });
   }
-
-  return (
-    <div className='game'>
-      <ControlArea/>
-      <DealArea
-        numberOfCardsToDeal={props.numberOfCardsToDeal}
-        trumpCard={props.trumpCard}
-      />
-      {getPlayerAreas()}
-      <Table
-        cards={props.tableCards}
-      />
-    </div>
-  );
-};
+}
 
 export default Game;

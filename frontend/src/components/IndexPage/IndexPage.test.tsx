@@ -12,9 +12,13 @@ describe('<IndexPage />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const component = create(<MemoryRouter>
-        <Provider store={store}><IndexPage/></Provider>
-      </MemoryRouter>);
+      const component = create(
+        <MemoryRouter>
+          <Provider store={store}>
+            <IndexPage/>
+          </Provider>
+        </MemoryRouter>
+      );
       expect(component.toJSON()).toMatchSnapshot();
     });
   });

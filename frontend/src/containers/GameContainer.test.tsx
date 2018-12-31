@@ -3,15 +3,15 @@ import {mount} from 'enzyme';
 import GameContainer from './GameContainer';
 import Game from '../components/GamePage/Game/Game';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import rootReducer from '../store/index';
-
-const store = createStore(rootReducer);
+import {testStore} from '../common/TestData';
 
 describe('<GameContainer />', () => {
 
   it('should connect to Game correctly', () => {
-    const component = mount(<Provider store={store}><GameContainer/></Provider>);
+    const component = mount(
+      <Provider store={testStore}>
+        <GameContainer gameId={'123'}/>
+      </Provider>);
 
     expect(component.find(Game).length).toEqual(1);
   });

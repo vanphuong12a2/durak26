@@ -247,3 +247,15 @@ exports[`<Game /> Snapshots renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`<Game /> Snapshots renders loading state correctly 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`<Game /> Snapshots renders loading state correctly 2`] = `
+<div>
+  There is an error!
+</div>
+`;

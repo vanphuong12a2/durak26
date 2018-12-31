@@ -29,6 +29,7 @@
     "test-watch": "tslint --project '.' && react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:1337",
   "eslintConfig": {
     "extends": "react-app"
   },

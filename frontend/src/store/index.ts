@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux'
-import card from './card/card';
-import player from './player/player';
+import {combineReducers} from 'redux'
 import {ApplicationState} from './ApplicationState';
-import game from './game/reducer';
+import gameReducer from './game/gameReducer';
+import cardReducer from './card/cardReducer';
+import playerReducer from './player/playerReducer';
 
 export default combineReducers<ApplicationState>({
-  game,
-  card,
-  player
+  game: gameReducer,
+  card: cardReducer,
+  player: playerReducer
 })

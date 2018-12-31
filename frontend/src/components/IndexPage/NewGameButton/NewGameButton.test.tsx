@@ -1,10 +1,10 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import Games from './Games';
+import NewGameButton from './NewGameButton';
 import createMemoryHistory from 'history/createMemoryHistory';
 import {shallow} from 'enzyme';
 
-describe('<Games />', () => {
+describe('<NewGameButton />', () => {
 
   const history = createMemoryHistory(undefined);
   const match = {params: [], isExact: false, path: '', url: ''};
@@ -12,7 +12,7 @@ describe('<Games />', () => {
   describe('Snapshots', () => {
     it('renders new game button correctly', () => {
       const component = create(
-        <Games
+        <NewGameButton
           loading={false}
           newGameButtonOnClick={jest.fn()}
           history={history}
@@ -23,7 +23,7 @@ describe('<Games />', () => {
     });
 
     it('renders loading game correctly', () => {
-      const component = create(<Games
+      const component = create(<NewGameButton
         loading={true}
         newGameButtonOnClick={jest.fn()}
         history={history}
@@ -34,9 +34,9 @@ describe('<Games />', () => {
     });
 
     it('renders error correctly', () => {
-      const component = create(<Games
+      const component = create(<NewGameButton
         loading={true}
-        error={new Error('some-error')}
+        error={new Error('someError')}
         newGameButtonOnClick={jest.fn()}
         history={history}
         location={history.location}
@@ -48,7 +48,7 @@ describe('<Games />', () => {
 
   it('should redirect to game page if gameId is available', () => {
     shallow(
-      <Games
+      <NewGameButton
         gameId={123}
         loading={false}
         newGameButtonOnClick={jest.fn()}

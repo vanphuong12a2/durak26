@@ -9,7 +9,9 @@ interface Props {
 const GamePage = (props: Props) => {
   return (
     <div className='game-page'>
-      <GameContainer/>
+      <GameContainer
+        gameId={props.match.params.gameId}
+      />
       <span>Game ID: #{props.match.params.gameId}</span>
     </div>
   );

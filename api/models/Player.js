@@ -1,5 +1,5 @@
 /**
- * Game.js
+ * Player.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -9,10 +9,20 @@ module.exports = {
 
   attributes: {
 
-    players: {
-      collection: 'player',
-      via: 'gameId'
+    name: {
+      type: 'string',
+      required: true
     },
+
+    numberOfCards: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    gameId: {
+      model: 'game'
+    }
   },
 
 };
+

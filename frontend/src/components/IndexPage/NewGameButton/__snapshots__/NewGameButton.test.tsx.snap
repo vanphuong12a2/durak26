@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Games /> Snapshots renders error correctly 1`] = `
+exports[`<NewGameButton /> Snapshots renders error correctly 1`] = `
 <div
   className="error"
 >
@@ -8,7 +8,7 @@ exports[`<Games /> Snapshots renders error correctly 1`] = `
 </div>
 `;
 
-exports[`<Games /> Snapshots renders loading game correctly 1`] = `
+exports[`<NewGameButton /> Snapshots renders loading game correctly 1`] = `
 <div
   className="loading"
 >
@@ -16,7 +16,7 @@ exports[`<Games /> Snapshots renders loading game correctly 1`] = `
 </div>
 `;
 
-exports[`<Games /> Snapshots renders new game button correctly 1`] = `
+exports[`<NewGameButton /> Snapshots renders new game button correctly 1`] = `
 <div
   className="new-game"
 >
