@@ -7,15 +7,15 @@ A [Sails v1](https://sailsjs.com) application that allows 2-4 people to play Dur
 Link: https://durak26.herokuapp.com
 
 ### Running locally
-Build the frontend before running:
-```$xslt
-cd frontend
-yarn build
-```
+
+Start mongodb server with `mongod` and create a db name `durak26` (configure at ./config/datastores.js)
+
 Start the server:
 ```$xslt
-sails lift
+./start.sh
 ```
+
+or `sails lift` to skip building frontend
 
 ### Notes
 
