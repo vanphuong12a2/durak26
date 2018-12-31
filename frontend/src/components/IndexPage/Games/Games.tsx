@@ -1,6 +1,6 @@
 import React from 'react';
 import './Games.scss';
-import {Link} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router-dom';
 
 export interface GamesProps {
   gameId?: number
@@ -9,7 +9,7 @@ export interface GamesProps {
   newGameButtonOnClick: () => any
 }
 
-const Games = (props: GamesProps) => {
+const Games = (props: GamesProps & RouteComponentProps) => {
 
   if (props.error) {
     return (<div className='error'>There is an error!</div>)
@@ -19,12 +19,13 @@ const Games = (props: GamesProps) => {
     return (<div className='loading'>Loading...</div>)
   }
 
+  if (props.gameId) {
+    props.history.push(`/play/${props.gameId}`);
+  }
+
   return (
     <div className='new-game'>
-      {props.gameId ?
-        <Link className='waves-effect waves-light btn-small' to={`/game/${props.gameId}`}>Go to game</Link> :
-        <a className='waves-effect waves-light btn-small' onClick={props.newGameButtonOnClick}>New game</a>
-      }
+      <a className='waves-effect waves-light btn-small' onClick={props.newGameButtonOnClick}>New game</a>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {ApplicationState} from '../store/ApplicationState';
-import Games from '../components/IndexPage/Games/Games';
 import {addGame} from '../store/game/actions';
+import {withRouter} from 'react-router';
+import Games from '../components/IndexPage/Games/Games';
 
 const mapStateToProps = (state: ApplicationState) => (
   {...state.game.newGame}
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch: any) => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Games);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Games));

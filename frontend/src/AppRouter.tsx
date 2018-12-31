@@ -7,7 +7,7 @@ const AppRouter = () => (
   <Router>
     <div>
       <Route path='/' exact={true} component={IndexPage}/>
-      <Route path='/game/:gameId' component={GamePage}/>
+      <Route path='/play/:gameId' component={GamePage}/>
     </div>
   </Router>
 );

@@ -19,7 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/game/*': { controller: 'index', action: 'index', skipAssets: true},
+  '/play/*': { controller: 'index', action: 'index', skipAssets: true},
 
 
   /***************************************************************************
