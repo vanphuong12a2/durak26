@@ -9,6 +9,8 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
+    "@types/redux-logger": "^3.0.6",
+    "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -16,6 +18,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "typescript": "^3.2.2"
   },
   "scripts": {
@@ -35,15 +39,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-test-renderer": "^16.7.0",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/fetch-mock": "^7.2.0",
     "@types/react-test-renderer": "^16.0.3",
-    "redux-devtools": "^3.5.0",
-    "tslint": "^5.12.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-react": "^3.6.0",
+    "@types/redux-mock-store": "^1.0.0",
+    "@types/redux-thunk": "^2.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "@types/enzyme-adapter-react-16": "^1.0.3",
-    "@types/fetch-mock": "^7.2.0"
+    "fetch-mock": "^7.2.8",
+    "react-test-renderer": "^16.7.0",
+    "redux-devtools": "^3.5.0",
+    "redux-mock-store": "latest",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0"
   }
 }

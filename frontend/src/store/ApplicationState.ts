@@ -20,5 +20,9 @@ export interface CardState {
 }
 
 export interface GameState {
-  playing: boolean
+  newGame: {
+    gameId?: number
+    loading: boolean
+    error?: Error
+  }
 }

@@ -6,22 +6,26 @@ exports[`<Games /> Snapshots renders correctly 1`] = `
 >
   <a
     className="waves-effect waves-light btn-small"
+    href="/game/123"
     onClick={[Function]}
   >
-    New game
+    Go to game
   </a>
 </div>
 `;
 
-exports[`<Games /> Snapshots renders playing game correctly 1`] = `
+exports[`<Games /> Snapshots renders error correctly 1`] = `
 <div
-  className="new-game"
+  className="error"
 >
-  <a
-    className="waves-effect waves-light btn-small"
-    onClick={[Function]}
-  >
-    New game
-  </a>
+  There is an error!
+</div>
+`;
+
+exports[`<Games /> Snapshots renders loading game correctly 1`] = `
+<div
+  className="loading"
+>
+  Loading...
 </div>
 `;

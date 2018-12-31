@@ -1,11 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {ApplicationState} from '../store/ApplicationState';
-import Games, {GamesProps} from '../components/IndexPage/Games/Games';
+import Games from '../components/IndexPage/Games/Games';
+import {addGame} from '../store/game/actions';
 
-const mapStateToProps: (state: ApplicationState) => GamesProps =
-  (state: ApplicationState) => ({
-    playing: state.game.playing
-  });
+const mapStateToProps = (state: ApplicationState) => (
+  {...state.game.newGame}
+);
 
-export default connect(mapStateToProps, null)(Games);
+const mapDispatchToProps = (dispatch: any) => (
+  {
+    newGameButtonOnClick: () => dispatch(addGame())
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Games);
