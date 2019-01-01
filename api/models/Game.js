@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
 
     numberOfCardsToDeal: {
-      type: 'integer',
+      type: 'number',
       defaultsTo: 52
     },
     trumpCard: {

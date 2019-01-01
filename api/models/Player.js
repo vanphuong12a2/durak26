@@ -15,7 +15,7 @@ module.exports = {
     },
 
     numberOfCards: {
-      type: 'integer',
+      type: 'number',
       defaultsTo: 0
     },
 
@@ -28,6 +28,5 @@ module.exports = {
       model: 'game'
     }
   },
-
 };
 

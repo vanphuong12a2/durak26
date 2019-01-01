@@ -5,9 +5,9 @@
   "description": "an online Durak card game",
   "keywords": [],
   "dependencies": {
-    "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
+    "connect-mongo": "^2.0.3",
     "grunt": "1.0.1",
     "grunt-run": "^0.8.1",
     "sails": "^1.1.0",
