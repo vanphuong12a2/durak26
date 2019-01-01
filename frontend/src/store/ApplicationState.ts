@@ -9,7 +9,11 @@ export interface ApplicationState {
 
 export interface PlayerState {
   players: Player[]
-  playingPlayerId?: string
+  playingPlayer: {
+    playerId?: string
+    loading: boolean
+    error?: Error
+  }
 }
 
 export interface CardState {
@@ -23,7 +27,7 @@ export interface GameState {
   loading: boolean
   error?: Error
   newGame: {
-    gameId?: number
+    gameId?: string
     loading: boolean
     error?: Error
   }

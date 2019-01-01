@@ -9,6 +9,22 @@ module.exports = {
 
   attributes: {
 
+    numberOfCardsToDeal: {
+      type: 'integer',
+      defaultsTo: 52
+    },
+    trumpCard: {
+      type: 'string',
+      required: false
+    },
+    tableCards: {
+      type: 'json',
+      defaultsTo: []
+    },
+    cardsToDeal: {
+      type: 'json',
+      defaultsTo: []
+    },
     players: {
       collection: 'player',
       via: 'gameId'

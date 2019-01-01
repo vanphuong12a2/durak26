@@ -19,6 +19,11 @@ module.exports = {
       defaultsTo: 0
     },
 
+    cards: {
+      type: 'json',
+      defaultsTo: []
+    },
+
     gameId: {
       model: 'game'
     }

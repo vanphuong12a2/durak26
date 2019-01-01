@@ -928,10 +928,10 @@
     "@types/cheerio" "*"
     "@types/react" "*"
 
-"@types/fetch-mock@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@types/fetch-mock/-/fetch-mock-7.2.0.tgz#5f0310e03177d452eeebe9b07975c1fed2a41dba"
-  integrity sha512-p73N4iZbQSEToxVY86R9CHVI4THKM+I9UsFxN10c2EuguSygzDdXXNkicRL/45oIF80u2XE6XDKuCo2NNikDqA==
+"@types/fetch-mock@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@types/fetch-mock/-/fetch-mock-7.2.1.tgz#5630999aa75532e00af42a54cbe05e1651f4a080"
+  integrity sha512-zuLhLEK4gOPxhkiUhqbG4p0lKY2ePEE//5NHTTn/vjYl0XWpfk2x0Fw7EWKtCjlggEsuc1GvpasD46X9PSZFaA==
 
 "@types/history@*":
   version "4.7.2"
@@ -1025,6 +1025,18 @@
   integrity sha1-vCtulylhgxr7gqm/TwZybjUflBY=
   dependencies:
     redux-thunk "*"
+
+"@types/socket.io-client@^1.4.32":
+  version "1.4.32"
+  resolved "https://registry.yarnpkg.com/@types/socket.io-client/-/socket.io-client-1.4.32.tgz#988a65a0386c274b1c22a55377fab6a30789ac14"
+  integrity sha512-Vs55Kq8F+OWvy1RLA31rT+cAyemzgm0EWNeax6BWF8H7QiiOYMJIdcwSDdm5LVgfEkoepsWkS+40+WNb7BUMbg==
+
+"@types/socket.io@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@types/socket.io/-/socket.io-2.1.2.tgz#7165c2587cc3b86b44aa78e2a0060140551de211"
+  integrity sha512-Ind+4qMNfQ62llyB4IMs1D8znMEBsMKohZBPqfBUIXqLQ9bdtWIbNTBWwtdcBWJKnokMZGcmWOOKslatni5vtA==
+  dependencies:
+    "@types/node" "*"
 
 "@types/tapable@1.0.2":
   version "1.0.2"
@@ -3975,7 +3987,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fetch-mock@^7.2.8:
+fetch-mock@^7.2.1:
   version "7.2.8"
   resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-7.2.8.tgz#b83b84c144b37eb6bcecc8e6334b784951452ec6"
   integrity sha512-1l9oDwU3XjaJqYGXHRqqlP6DEwGdf2eiFcrBwHRgbjuA+kR/u2A+aXn8/AdpzqDQYEdSZk+LgZcIsacgMKJT/g==

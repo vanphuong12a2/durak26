@@ -13,12 +13,12 @@ describe('game actions creator', () => {
     it('creates ADD_GAME_SUCCESS when adding game has been done', () => {
       fetchMock.postOnce('/game', {
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify({id: 123})
+        body: JSON.stringify({id: '123'})
       });
 
       const expectedActions = [
         {type: '@@game/ADD_GAME_REQUEST'},
-        {type: '@@game/ADD_GAME_SUCCESS', payload: {id: 123}}
+        {type: '@@game/ADD_GAME_SUCCESS', gameId: '123'}
       ];
 
       const store = freshTestStore();

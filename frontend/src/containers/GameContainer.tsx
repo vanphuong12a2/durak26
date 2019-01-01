@@ -3,6 +3,7 @@ import Game from '../components/GamePage/Game/Game';
 import {connect} from 'react-redux';
 import {ApplicationState} from '../store/ApplicationState';
 import {loadGame} from '../store/game/gameActionCreator';
+import {addPlayer} from '../store/player/playerActionCreator';
 
 const mapStateToProps = (state: ApplicationState, ownProps: { gameId: string }) => ({
   gameId: ownProps.gameId,
@@ -13,11 +14,12 @@ const mapStateToProps = (state: ApplicationState, ownProps: { gameId: string }) 
   tableCards: state.card.tableCards,
   playingPlayerCards: state.card.playingPlayerCards,
   players: state.player.players,
-  playingPlayerId: state.player.playingPlayerId
+  playingPlayerId: state.player.playingPlayer.playerId
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  loadGameFunction: (gameId: string) => dispatch(loadGame(gameId))
+  loadGameFunction: (gameId: string) => dispatch(loadGame(gameId)),
+  joinGameFunction: (gameId: string) => dispatch(addPlayer(gameId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

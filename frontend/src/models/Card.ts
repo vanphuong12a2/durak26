@@ -1,13 +1,11 @@
 class Card {
   public value: string;
-  public suite: string;
+  public suit: string;
 
-  constructor(value: string, suite: string) {
+  constructor(value: string, suit: string) {
     this.value = value;
-    this.suite = suite;
+    this.suit = suit;
   }
-
-  public getSvg = () => `_${this.value}${this.suite}`;
 }
 
 export default Card;

@@ -9,6 +9,7 @@ describe('<PlayerArea />', () => {
     it('renders empty player area correctly', () => {
       const component = create(<PlayerArea
         position={0}
+        playingPlayerCards={[]}
       />);
       expect(component.toJSON()).toMatchSnapshot();
     });
@@ -16,7 +17,8 @@ describe('<PlayerArea />', () => {
     it('renders player area with cards correctly', () => {
       const component = create(<PlayerArea
         position={0}
-        player={new Player(1, 'Luffy', 2)}
+        player={new Player('1', 'Luffy', 2)}
+        playingPlayerCards={[]}
       />);
       expect(component.toJSON()).toMatchSnapshot();
     });

@@ -19,12 +19,14 @@ export interface GameProps {
   players: Player[]
   playingPlayerId?: string
   loadGameFunction: (gameId: string) => void
+  joinGameFunction: (gameId: string) => void
 }
 
 class Game extends React.Component<GameProps> {
 
   public componentDidMount() {
     this.props.loadGameFunction(this.props.gameId);
+    this.props.joinGameFunction(this.props.gameId);
   }
 
   public render = () => {

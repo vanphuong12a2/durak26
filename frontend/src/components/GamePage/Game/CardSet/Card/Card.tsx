@@ -9,7 +9,7 @@ interface Props {
 
 const FaceUpCard = (props: Props) => {
   // @ts-ignore
-  const cardSvg = cards[props.card.getSvg()];
+  const cardSvg = cards[`_${props.card.value}${props.card.suit}`];
   return (
     <img className='card' src={cardSvg}/>
   );

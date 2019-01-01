@@ -6,9 +6,7 @@ export interface AddGameRequestAction extends Action {
 
 export interface AddGameSuccessAction extends Action {
   type: '@@game/ADD_GAME_SUCCESS',
-  payload: {
-    id: number
-  }
+  gameId: string
 }
 
 export interface AddGameFailureAction extends Action {

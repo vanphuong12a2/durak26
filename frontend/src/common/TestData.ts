@@ -23,7 +23,10 @@ const getInitialApplicationState = () => (
       playingPlayerCards: []
     },
     player: {
-      players: []
+      players: [],
+      playingPlayer: {
+        loading: false
+      }
     }
   }
 );

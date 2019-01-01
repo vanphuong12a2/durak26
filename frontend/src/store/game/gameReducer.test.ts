@@ -1,22 +1,22 @@
-import game from './gameReducer';
+import gameReducer from './gameReducer';
 
 describe('game reducer', () => {
 
   describe('load game', () => {
 
     it('should change to loading state', () => {
-      const gameStore = game(undefined, {type: '@@game/LOAD_GAME_REQUEST'});
+      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_REQUEST'});
       expect(gameStore.loading).toEqual(true);
     });
 
     it('should exit loading state ', () => {
-      const gameStore = game(undefined, {type: '@@game/LOAD_GAME_SUCCESS'});
+      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_SUCCESS'});
       expect(gameStore.loading).toEqual(false);
     });
 
     it('should assign error', () => {
       const error = new Error('someError');
-      const gameStore = game(undefined, {type: '@@game/LOAD_GAME_FAILURE', error});
+      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_FAILURE', error});
       expect(gameStore.loading).toEqual(false);
       expect(gameStore.error).toEqual(error);
     });
@@ -25,20 +25,20 @@ describe('game reducer', () => {
   describe('add game', () => {
 
     it('should change to loading state', () => {
-      const gameStore = game(undefined, {type: '@@game/ADD_GAME_REQUEST'});
+      const gameStore = gameReducer(undefined, {type: '@@game/ADD_GAME_REQUEST'});
       expect(gameStore.newGame.loading).toEqual(true);
     });
 
     it('should assign error', () => {
       const error = new Error('someError');
-      const gameStore = game(undefined, {type: '@@game/ADD_GAME_FAILURE', error});
+      const gameStore = gameReducer(undefined, {type: '@@game/ADD_GAME_FAILURE', error});
       expect(gameStore.newGame.loading).toEqual(false);
       expect(gameStore.newGame.error).toEqual(error);
     });
 
     it('should assign game id', () => {
-      const gameStore = game(undefined, {type: '@@game/ADD_GAME_SUCCESS', payload: {id: 123}});
-      expect(gameStore.newGame.gameId).toEqual(123);
+      const gameStore = gameReducer(undefined, {type: '@@game/ADD_GAME_SUCCESS', gameId: '123'});
+      expect(gameStore.newGame.gameId).toEqual('123');
       expect(gameStore.newGame.error).toEqual(undefined);
       expect(gameStore.newGame.loading).toEqual(false);
     })

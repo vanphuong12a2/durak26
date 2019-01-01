@@ -22,7 +22,8 @@ describe('<Game />', () => {
           new Player('id3', 'Nami', 5),
           new Player('id4', 'Robin', 0)
         ]}
-        loadGameFunction={jest.fn()}/>
+        loadGameFunction={jest.fn()}
+        joinGameFunction={jest.fn()}/>
       );
       expect(component.toJSON()).toMatchSnapshot();
     });
@@ -36,7 +37,8 @@ describe('<Game />', () => {
         tableCards={[]}
         playingPlayerCards={[]}
         players={[]}
-        loadGameFunction={jest.fn()}/>
+        loadGameFunction={jest.fn()}
+        joinGameFunction={jest.fn()}/>
       );
       expect(component.toJSON()).toMatchSnapshot();
     });
@@ -51,15 +53,18 @@ describe('<Game />', () => {
         tableCards={[]}
         playingPlayerCards={[]}
         players={[]}
-        loadGameFunction={jest.fn()}/>
+        loadGameFunction={jest.fn()}
+        joinGameFunction={jest.fn()}
+        />
       );
       expect(component.toJSON()).toMatchSnapshot();
     });
 
   });
 
-  it('should load players on mounting', () => {
+  it('should load players & try to join into the gameReducer on mounting', () => {
     const loadGameFunction = jest.fn();
+    const joinGameFunction = jest.fn();
     shallow(
       <Game
         gameId={'123'}
@@ -70,9 +75,11 @@ describe('<Game />', () => {
         playingPlayerCards={[]}
         players={[]}
         loadGameFunction={loadGameFunction}
+        joinGameFunction={joinGameFunction}
       />
     );
 
     expect(loadGameFunction).toBeCalledTimes(1);
+    expect(joinGameFunction).toBeCalledTimes(1);
   });
 });

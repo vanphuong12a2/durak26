@@ -1,8 +1,5 @@
 import {CardState} from '../ApplicationState';
-
-interface Action {
-  type: any
-}
+import {CardAction} from './CardAction';
 
 const initialState: CardState = {
   numberOfCardsToDeal: 52,
@@ -10,11 +7,12 @@ const initialState: CardState = {
   playingPlayerCards: []
 };
 
-const cardReducer = (state: CardState = initialState, action: Action) => {
+const cardReducer = (state: CardState = initialState, action: CardAction) => {
   switch (action.type) {
-    default: {
+    case '@@card/SET_PLAYING_PLAYER_CARDS':
+      return {...state, playingPlayerCards: action.cards};
+    default:
       return state;
-    }
   }
 };
 

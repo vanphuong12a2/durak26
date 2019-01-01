@@ -1,9 +1,10 @@
 import cardReducer from './cardReducer';
+import {aCard} from '../../common/TestData';
 
 describe('card reducer', () => {
-  it('should return the initial state', () => {
-    const cardStore = cardReducer(undefined, {type: undefined});
-    expect(cardStore.numberOfCardsToDeal).toEqual(52);
-    expect(cardStore.trumpCard).toEqual(undefined);
+
+  it('should set playing player cards', () => {
+    const cardStore = cardReducer(undefined, {type: '@@card/SET_PLAYING_PLAYER_CARDS', cards: [aCard]});
+    expect(cardStore.playingPlayerCards).toEqual([aCard]);
   })
 });

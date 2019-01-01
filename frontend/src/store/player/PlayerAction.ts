@@ -6,4 +6,18 @@ export interface SetPlayersAction extends Action {
   players: Player[]
 }
 
-export type PlayerAction = SetPlayersAction;
+export interface AddPlayerRequestAction extends Action {
+  type: '@@player/ADD_PLAYER_REQUEST'
+}
+
+export interface AddPlayerSuccessAction extends Action {
+  type: '@@player/ADD_PLAYER_SUCCESS',
+  playerId: string
+}
+
+export interface AddPlayerFailureAction extends Action {
+  type: '@@player/ADD_PLAYER_FAILURE',
+  error: Error
+}
+
+export type PlayerAction = SetPlayersAction | AddPlayerRequestAction | AddPlayerSuccessAction | AddPlayerFailureAction;

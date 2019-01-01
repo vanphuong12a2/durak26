@@ -49,7 +49,7 @@ describe('<NewGameButton />', () => {
   it('should redirect to game page if gameId is available', () => {
     shallow(
       <NewGameButton
-        gameId={123}
+        gameId={'123'}
         loading={false}
         newGameButtonOnClick={jest.fn()}
         history={history}

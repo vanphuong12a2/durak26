@@ -3,7 +3,7 @@ import {RouteComponentProps} from 'react-router-dom';
 import './NewGameButton.scss';
 
 export interface GamesProps {
-  gameId?: number
+  gameId?: string
   loading: boolean
   error?: Error
   newGameButtonOnClick: () => any

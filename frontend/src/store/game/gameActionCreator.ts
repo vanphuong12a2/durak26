@@ -8,6 +8,7 @@ import {
   LoadGameRequestAction,
   LoadGameSuccessAction
 } from './GameAction';
+import apiFetch from '../../common/apiFetch';
 
 
 const addGameRequest: ActionCreator<AddGameRequestAction> = () => ({
@@ -15,9 +16,9 @@ const addGameRequest: ActionCreator<AddGameRequestAction> = () => ({
 });
 
 
-const addGameSuccess: ActionCreator<AddGameSuccessAction> = (payload: { id: number }) => ({
+const addGameSuccess: ActionCreator<AddGameSuccessAction> = (gameId: string) => ({
   type: '@@game/ADD_GAME_SUCCESS',
-  payload
+  gameId
 });
 
 const addGameFailure: ActionCreator<AddGameFailureAction> = (error: Error) => ({
@@ -28,23 +29,16 @@ const addGameFailure: ActionCreator<AddGameFailureAction> = (error: Error) => ({
 export function addGame() {
   return (dispatch: Dispatch) => {
     dispatch(addGameRequest());
-    return fetch('/game', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({})
-    })
-      .then(res => {
-        if (res.ok) {
-          return res;
-        } else {
-          throw new Error('Status code is not 200');
-        }
+    return apiFetch('/game',
+      {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
       })
-      .then(res => res.json())
-      .then(payload => dispatch(addGameSuccess(payload)))
+      .then(payload => dispatch(addGameSuccess(payload.id)))
       .catch(ex => dispatch(addGameFailure(ex)))
   }
 }
@@ -65,25 +59,20 @@ const loadGameFailure: ActionCreator<LoadGameFailureAction> = (error: Error) => 
 export function loadGame(gameId: string) {
   return (dispatch: Dispatch) => {
     dispatch(loadGameRequest());
-    return fetch(`/game/${gameId}`, {
-      method: 'get',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => {
-        if (res.ok) {
-          return res;
-        } else {
-          throw new Error('Status code is not 200');
+    return apiFetch(`/game/${gameId}`,
+      {
+        method: 'get',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
       })
-      .then(res => res.json())
       .then(payload => {
         dispatch(loadGameSuccess());
         dispatch(setPlayers(payload.players))
       })
-      .catch(ex => dispatch(loadGameFailure(ex)))
+      .catch(ex =>
+        dispatch(loadGameFailure(ex))
+      )
   }
 }
