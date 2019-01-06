@@ -5,6 +5,8 @@
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
+const constant = require('./../common/constant');
+
 module.exports = {
 
   attributes: {
@@ -13,7 +15,7 @@ module.exports = {
     },
     cards: {
       type: 'json',
-      defaultsTo: {}
+      defaultsTo: {[constant.CardPosition.TO_DEAL]: sails.helpers.generateCards()},
     },
     players: {
       collection: 'player',

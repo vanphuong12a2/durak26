@@ -4,6 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+const constant = require('./../common/constant');
 
 module.exports = {
 
@@ -14,7 +15,15 @@ module.exports = {
 
   findOne: async (req, res) => {
     const game = await Game.findOne({id: req.param('id')}).populate('players');
-    return res.json(game);
+    const filteredGame = {
+      ...game,
+      cards: {
+        ...game.cards,
+        [constant.CardPosition.TO_DEAL]: game.cards[constant.CardPosition.TO_DEAL].map(() => constant.hiddenCard)
+      }
+    };
+
+    return res.json(filteredGame);
   }
 };
 
