@@ -1,5 +1,5 @@
-import Player from '../models/Player';
-import Card from '../models/Card';
+import PlayerData from '../models/PlayerData';
+import {CardsMap} from '../models/CardsMap';
 
 export interface ApplicationState {
   card: CardState
@@ -8,8 +8,8 @@ export interface ApplicationState {
 }
 
 export interface PlayerState {
-  players: Player[]
-  playingPlayer: {
+  players: PlayerData[]
+  newPlayer: {
     playerId?: string
     loading: boolean
     error?: Error
@@ -17,10 +17,7 @@ export interface PlayerState {
 }
 
 export interface CardState {
-  numberOfCardsToDeal: number,
-  trumpCard?: Card
-  tableCards: Card[]
-  playingPlayerCards: Card[]
+  cards: CardsMap
 }
 
 export interface GameState {

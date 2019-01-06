@@ -38,7 +38,7 @@ exports[`<Table /> Snapshots renders correctly 1`] = `
           />
           <img
             className="card"
-            src="7S.svg"
+            src="card_back.svg"
           />
         </div>
       </div>

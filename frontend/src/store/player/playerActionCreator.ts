@@ -1,11 +1,9 @@
 import {ActionCreator, Dispatch} from 'redux';
-import Player from '../../models/Player';
 import apiFetch from '../../common/apiFetch';
-import {setPlayingPlayerCards} from '../card/cardActionCreator';
 import {AddPlayerFailureAction, AddPlayerRequestAction, AddPlayerSuccessAction, SetPlayersAction} from './PlayerAction';
-import Card from '../../models/Card';
+import PlayerData from '../../models/PlayerData';
 
-export const setPlayers: ActionCreator<SetPlayersAction> = (players: Player[]) => ({
+export const setPlayers: ActionCreator<SetPlayersAction> = (players: PlayerData[]) => ({
   type: '@@player/SET_PLAYERS',
   players
 });
@@ -43,7 +41,6 @@ export function addPlayer(gameId: string) {
       })
       .then(payload => {
         dispatch(addPlayerSuccess(payload.id));
-        dispatch(setPlayingPlayerCards(payload.cards));
       })
       .catch(error => dispatch(addPlayerFailure(error)))
   }

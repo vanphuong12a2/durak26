@@ -1,9 +1,9 @@
 import {Action} from 'redux';
-import Player from '../../models/Player';
+import PlayerData from '../../models/PlayerData';
 
 export interface SetPlayersAction extends Action {
   type: '@@player/SET_PLAYERS',
-  players: Player[]
+  players: PlayerData[]
 }
 
 export interface AddPlayerRequestAction extends Action {

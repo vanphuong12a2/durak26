@@ -6,9 +6,9 @@ import NewGameButton from '../components/IndexPage/NewGameButton/NewGameButton';
 import NewGameButtonContainer from './NewGameButtonContainer';
 import {testStore} from '../common/TestData';
 
-describe('<GamesContainer />', () => {
+describe('<NewGameButtonContainer />', () => {
 
-  it('should connect to Game correctly', () => {
+  it('should connect to NewGameButton correctly', () => {
     const component = mount(
       <MemoryRouter>
         <Provider store={testStore}>

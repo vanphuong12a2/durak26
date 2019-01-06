@@ -1,10 +1,10 @@
 import React from 'react';
+import CardSet from '../CardSet/CardSet';
+import CardData, {UNKNOWN_VALUE} from '../../../../models/CardData';
 import './Table.scss';
-import Card from '../../../../models/Card';
-import {FaceUpCardSet} from '../CardSet/CardSet';
 
 interface Props {
-  cards: Card[]
+  cards: CardData[]
 }
 
 const Table = (props: Props) => {
@@ -13,7 +13,7 @@ const Table = (props: Props) => {
   const attackCards = props.cards.filter((card, index) => index % 2 === 0);
   const defendCards = props.cards.filter((card, index) => index % 2 !== 0);
   if (defendingState) {
-    const finalHiddenCard = new Card('7', 'S');
+    const finalHiddenCard = new CardData(UNKNOWN_VALUE, UNKNOWN_VALUE);
     defendCards.push(finalHiddenCard);
   }
 
@@ -23,10 +23,10 @@ const Table = (props: Props) => {
         <div className='table-content'>
 
           <div className='attack-set'>
-            <FaceUpCardSet cards={attackCards}/>
+            <CardSet cards={attackCards}/>
           </div>
           <div className={defendSetClassName}>
-            <FaceUpCardSet cards={defendCards}/>
+            <CardSet cards={defendCards}/>
           </div>
 
         </div>

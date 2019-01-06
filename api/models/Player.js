@@ -13,17 +13,6 @@ module.exports = {
       type: 'string',
       required: true
     },
-
-    numberOfCards: {
-      type: 'number',
-      defaultsTo: 0
-    },
-
-    cards: {
-      type: 'json',
-      defaultsTo: []
-    },
-
     gameId: {
       model: 'game'
     }

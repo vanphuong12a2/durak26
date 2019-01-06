@@ -8,22 +8,12 @@
 module.exports = {
 
   attributes: {
-
-    numberOfCardsToDeal: {
-      type: 'number',
-      defaultsTo: 52
+    playing: {
+      type: 'boolean'
     },
-    trumpCard: {
-      type: 'string',
-      required: false
-    },
-    tableCards: {
+    cards: {
       type: 'json',
-      defaultsTo: []
-    },
-    cardsToDeal: {
-      type: 'json',
-      defaultsTo: []
+      defaultsTo: {}
     },
     players: {
       collection: 'player',

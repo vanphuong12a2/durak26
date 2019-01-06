@@ -21,6 +21,11 @@ module.exports.routes = {
 
   '/play/*': { controller: 'index', action: 'index', skipAssets: true},
 
+  'POST /game': 'GameController.create',
+  'GET /game/:id': 'GameController.findOne',
+
+  'POST /player': 'PlayerController.create',
+
 
   /***************************************************************************
   *                                                                          *

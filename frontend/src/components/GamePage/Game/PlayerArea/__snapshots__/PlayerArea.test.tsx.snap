@@ -2,7 +2,7 @@
 
 exports[`<PlayerArea /> Snapshots renders empty player area correctly 1`] = `
 <div
-  className="player-area bottom"
+  className="player-area right"
 />
 `;
 
@@ -13,18 +13,14 @@ exports[`<PlayerArea /> Snapshots renders player area with cards correctly 1`] =
   <div
     className="player-info"
   >
-    Luffy
+    some-name
   </div>
   <div
     className="card-set"
   >
     <img
       className="card"
-      src="card_back.svg"
-    />
-    <img
-      className="card"
-      src="card_back.svg"
+      src="2D.svg"
     />
   </div>
 </div>

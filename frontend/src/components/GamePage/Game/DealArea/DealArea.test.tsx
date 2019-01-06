@@ -7,7 +7,7 @@ describe('<DealArea />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const component = create(<DealArea numberOfCardsToDeal={4} trumpCard={aCard}/>);
+      const component = create(<DealArea cardsToDeal={[aCard]} trumpCard={aCard}/>);
       expect(component.toJSON()).toMatchSnapshot();
     });
   });

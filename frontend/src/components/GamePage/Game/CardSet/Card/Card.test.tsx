@@ -1,18 +1,18 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import {FaceDownCard, FaceUpCard} from './Card';
-import {aCard} from '../../../../../common/TestData';
+import {aCard, anUnknownCard} from '../../../../../common/TestData';
+import Card from './Card';
 
-describe('<FaceUpCard />', () => {
+describe('<Card />', () => {
 
   describe('Snapshots', () => {
     it('renders face-up card correctly', () => {
-      const component = create(<FaceUpCard card={aCard}/>);
+      const component = create(<Card card={aCard}/>);
       expect(component.toJSON()).toMatchSnapshot();
     });
 
     it('renders face-down card correctly', () => {
-      const component = create(<FaceDownCard/>);
+      const component = create(<Card card={anUnknownCard}/>);
       expect(component.toJSON()).toMatchSnapshot();
     });
   });

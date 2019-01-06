@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import {freshTestStore} from '../../common/TestData';
+import {cards, freshTestStore} from '../../common/TestData';
 import {addGame, loadGame} from './gameActionCreator';
 
 describe('game actions creator', () => {
@@ -54,13 +54,15 @@ describe('game actions creator', () => {
 
     it('creates LOAD_GAME_SUCCESS when adding game has been done', () => {
       const gameId = '123';
+
       const gamePayload = {
         players: [{
           id: 'someId',
           name: 'someName',
-          numberOfCards: 0
-        }]
+        }],
+        cards
       };
+
       fetchMock.getOnce('/game/123', {
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(gamePayload)
@@ -68,8 +70,9 @@ describe('game actions creator', () => {
 
       const expectedActions = [
         {type: '@@game/LOAD_GAME_REQUEST'},
+        {type: '@@card/SET_CARDS', cards: gamePayload.cards},
+        {type: '@@player/SET_PLAYERS', players: gamePayload.players},
         {type: '@@game/LOAD_GAME_SUCCESS'},
-        {type: '@@player/SET_PLAYERS', players: gamePayload.players}
       ];
 
       const store = freshTestStore();

@@ -9,12 +9,8 @@ const mapStateToProps = (state: ApplicationState, ownProps: { gameId: string }) 
   gameId: ownProps.gameId,
   loading: state.game.loading,
   error: state.game.error,
-  numberOfCardsToDeal: state.card.numberOfCardsToDeal,
-  trumpCard: state.card.trumpCard,
-  tableCards: state.card.tableCards,
-  playingPlayerCards: state.card.playingPlayerCards,
   players: state.player.players,
-  playingPlayerId: state.player.playingPlayer.playerId
+  cards: state.card.cards,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

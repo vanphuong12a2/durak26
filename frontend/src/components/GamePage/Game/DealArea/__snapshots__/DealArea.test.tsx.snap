@@ -9,19 +9,7 @@ exports[`<DealArea /> Snapshots renders correctly 1`] = `
   >
     <img
       className="card"
-      src="card_back.svg"
-    />
-    <img
-      className="card"
-      src="card_back.svg"
-    />
-    <img
-      className="card"
-      src="card_back.svg"
-    />
-    <img
-      className="card"
-      src="card_back.svg"
+      src="2D.svg"
     />
   </div>
   <img

@@ -1,13 +1,20 @@
-import {Card} from '../components/GamePage/Game/CardSet/Card/Card';
 import createMockStore, {MockStoreCreator, MockStoreEnhanced} from 'redux-mock-store';
 import {ApplicationState} from '../store/ApplicationState';
 import thunk, {ThunkDispatch} from 'redux-thunk';
 import {AnyAction} from 'redux';
-import Player from '../models/Player';
+import PlayerData, {PlayerPosition} from '../models/PlayerData';
+import CardData, {UNKNOWN_VALUE} from '../models/CardData';
+import {CardPosition, CardsMap} from '../models/CardsMap';
+
+export const aCard = new CardData('2', 'D');
+export const anUnknownCard = new CardData(UNKNOWN_VALUE, UNKNOWN_VALUE);
+export const aPlayer = new PlayerData('someId', 'some-name', PlayerPosition.BOTTOM);
 
 type DispatchExts = ThunkDispatch<ApplicationState, undefined, AnyAction>
 const mockStoreCreator: MockStoreCreator<ApplicationState, DispatchExts> =
   createMockStore<ApplicationState, DispatchExts>([thunk]);
+
+export const cards: CardsMap = {[CardPosition.TO_DEAL]: [anUnknownCard, anUnknownCard]};
 
 const getInitialApplicationState = () => (
   {
@@ -18,20 +25,16 @@ const getInitialApplicationState = () => (
       }
     },
     card: {
-      numberOfCardsToDeal: 52,
-      tableCards: [],
-      playingPlayerCards: []
+      cards
     },
     player: {
       players: [],
-      playingPlayer: {
+      newPlayer: {
         loading: false
       }
     }
   }
 );
 
-export const aCard = new Card('2', 'D');
-export const aPlayer = new Player('someId', 'some-name', 0);
 export const freshTestStore = () => mockStoreCreator(getInitialApplicationState());
 export const testStore: MockStoreEnhanced<ApplicationState, DispatchExts> = freshTestStore();

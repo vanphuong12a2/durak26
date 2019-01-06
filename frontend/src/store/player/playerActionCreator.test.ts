@@ -1,7 +1,6 @@
 import fetchMock from 'fetch-mock';
 import {freshTestStore} from '../../common/TestData';
 import {addPlayer} from './playerActionCreator';
-import Card from '../../models/Card';
 
 describe('player actions creator', () => {
 
@@ -26,7 +25,6 @@ describe('player actions creator', () => {
       const expectedActions = [
         {type: '@@player/ADD_PLAYER_REQUEST'},
         {type: '@@player/ADD_PLAYER_SUCCESS', playerId: '123'},
-        {type: '@@card/SET_PLAYING_PLAYER_CARDS', cards: [new Card('1', 'H')]}
       ];
 
       const store = freshTestStore();

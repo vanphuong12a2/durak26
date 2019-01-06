@@ -1,8 +1,8 @@
 import {ActionCreator} from 'redux';
-import {SetPlayingPlayerCardsAction} from './CardAction';
-import Card from '../../models/Card';
+import {SetCardsAction} from './CardAction';
+import {CardsMap} from '../../models/CardsMap';
 
-export const setPlayingPlayerCards: ActionCreator<SetPlayingPlayerCardsAction> = (cards: Card[]) => ({
-  type: '@@card/SET_PLAYING_PLAYER_CARDS',
+export const setCards: ActionCreator<SetCardsAction> = (cards: CardsMap) => ({
+  type: '@@card/SET_CARDS',
   cards
 });

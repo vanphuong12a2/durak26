@@ -1,17 +1,13 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import {FaceDownCardSet, FaceUpCardSet} from './CardSet';
+import CardSet from './CardSet';
+import {aCard, anUnknownCard} from '../../../../common/TestData';
 
-describe('<FaceUpCardSet />', () => {
+describe('<CardSet />', () => {
 
   describe('Snapshots', () => {
-    it('renders FaceUpCardSet correctly', () => {
-      const component = create(<FaceUpCardSet cards={[]}/>);
-      expect(component.toJSON()).toMatchSnapshot();
-    });
-
-    it('renders FaceDownCardSet correctly', () => {
-      const component = create(<FaceDownCardSet numberOfCards={4}/>);
+    it('renders correctly', () => {
+      const component = create(<CardSet cards={[aCard, anUnknownCard]}/>);
       expect(component.toJSON()).toMatchSnapshot();
     });
   });

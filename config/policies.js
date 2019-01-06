@@ -19,6 +19,4 @@ module.exports.policies = {
 
   // '*': true,
 
-  'player/create': 'canJoinGame'
-
 };

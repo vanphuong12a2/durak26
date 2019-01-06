@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FaceUpCard /> Snapshots renders face-down card correctly 1`] = `
+exports[`<Card /> Snapshots renders face-down card correctly 1`] = `
 <img
   className="card"
   src="card_back.svg"
 />
 `;
 
-exports[`<FaceUpCard /> Snapshots renders face-up card correctly 1`] = `
+exports[`<Card /> Snapshots renders face-up card correctly 1`] = `
 <img
   className="card"
   src="2D.svg"

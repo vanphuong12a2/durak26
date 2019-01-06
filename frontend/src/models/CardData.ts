@@ -1,4 +1,6 @@
-class Card {
+export const UNKNOWN_VALUE = 'X';
+
+class CardData {
   public value: string;
   public suit: string;
 
@@ -8,4 +10,4 @@ class Card {
   }
 }
 
-export default Card;
+export default CardData;

@@ -1,9 +1,9 @@
 import {Action} from 'redux';
-import Card from '../../models/Card';
+import {CardsMap} from '../../models/CardsMap';
 
-export interface SetPlayingPlayerCardsAction extends Action {
-  type: '@@card/SET_PLAYING_PLAYER_CARDS',
-  cards: Card[]
+export interface SetCardsAction extends Action {
+  type: '@@card/SET_CARDS',
+  cards: CardsMap
 }
 
-export type CardAction = SetPlayingPlayerCardsAction;
+export type CardAction = SetCardsAction;

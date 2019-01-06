@@ -8,7 +8,8 @@
 const PATH_TO_PUBLIC = __dirname + '/../../frontend/build';
 
 module.exports = {
-  index: function(req, res) {
-    res.sendFile('index.html', { root: PATH_TO_PUBLIC });
+
+  index: (req, res) => {
+    res.sendFile('index.html', {root: PATH_TO_PUBLIC});
   }
 };

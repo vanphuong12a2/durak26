@@ -1,28 +1,22 @@
 import React from 'react';
-import Player from '../../../../models/Player';
-import Card from '../../../../models/Card';
 import './PlayerArea.scss';
-import {FaceDownCardSet, FaceUpCardSet} from '../CardSet/CardSet';
+import CardData from '../../../../models/CardData';
+import PlayerData, {PlayerPosition} from '../../../../models/PlayerData';
+import CardSet from '../CardSet/CardSet';
 
 interface Props {
-  position: number
-  player?: Player
-  playingPlayerCards: Card[]
-  playingPlayerId?: string
+  position: PlayerPosition
+  player?: PlayerData
+  playerCards: CardData[]
 }
 
-const POSITIONS = ['bottom', 'top', 'left', 'right'];
 const PlayerArea = (props: Props) => {
 
-  const areaWithPlayer = (player: Player) => {
+  const areaWithPlayer = (player: PlayerData, cards: CardData[]) => {
     return (
       <React.Fragment>
         <div className='player-info'>{player.name}</div>
-        {
-          props.playingPlayerId === player.id ?
-            <FaceUpCardSet cards={props.playingPlayerCards}/> :
-            <FaceDownCardSet numberOfCards={player.numberOfCards}/>
-        }
+        <CardSet cards={cards}/>
       </React.Fragment>
     )
   };
@@ -30,11 +24,10 @@ const PlayerArea = (props: Props) => {
   const areaWithoutPlayer = <React.Fragment/>;
 
   return (
-    <div className={`player-area ${POSITIONS[props.position]}`}>
-      {props.player ? areaWithPlayer(props.player) : areaWithoutPlayer}
+    <div className={`player-area ${PlayerPosition[props.position].toLowerCase()}`}>
+      {props.player ? areaWithPlayer(props.player, props.playerCards) : areaWithoutPlayer}
     </div>
   );
 };
 
 export default PlayerArea;
-

@@ -2,22 +2,17 @@ import React from 'react';
 import ControlArea from './ControlArea/ControlArea';
 import DealArea from './DealArea/DealArea';
 import PlayerArea from './PlayerArea/PlayerArea';
-import Player from '../../../models/Player';
-import Card from '../../../models/Card';
+import PlayerData, {PlayerPosition} from '../../../models/PlayerData';
+import {CardsMap, getCardsToDeal, getPlayerCards, getTableCards, getTrumpCard} from '../../../models/CardsMap';
 import Table from './Table/Table';
 import './Game.scss';
-
 
 export interface GameProps {
   gameId: string
   loading: boolean
   error?: Error
-  numberOfCardsToDeal: number
-  trumpCard?: Card
-  tableCards: Card[]
-  playingPlayerCards: Card[]
-  players: Player[]
-  playingPlayerId?: string
+  players: PlayerData[]
+  cards: CardsMap
   loadGameFunction: (gameId: string) => void
   joinGameFunction: (gameId: string) => void
 }
@@ -26,44 +21,46 @@ class Game extends React.Component<GameProps> {
 
   public componentDidMount() {
     this.props.loadGameFunction(this.props.gameId);
-    this.props.joinGameFunction(this.props.gameId);
+    // this.props.joinGameFunction(this.props.gameId);
   }
 
   public render = () => {
-    if(this.props.loading) {
+    if (this.props.loading) {
       return (<div>Loading...</div>);
     }
 
-    if(this.props.error) {
+    if (this.props.error) {
       return (<div>There is an error!</div>);
     }
+
     return (
       <div className='game'>
         <ControlArea/>
         <DealArea
-          numberOfCardsToDeal={this.props.numberOfCardsToDeal}
-          trumpCard={this.props.trumpCard}
+          trumpCard={getTrumpCard(this.props.cards)}
+          cardsToDeal={getCardsToDeal(this.props.cards)}
         />
         {this.getPlayerAreas()}
         <Table
-          cards={this.props.tableCards}
+          cards={getTableCards(this.props.cards)}
         />
       </div>
     );
   };
 
-  private getPlayerAreas() {
-    return new Array(4).fill(0).map((value, index) => {
-      const player = index < this.props.players.length ? this.props.players[index] : undefined;
-      return (
-        <PlayerArea
-          key={index}
-          position={index}
-          player={player}
-          playingPlayerCards={this.props.playingPlayerCards}
-          playingPlayerId={this.props.playingPlayerId}
-        />);
-    });
+  private getPlayerAreas = () => {
+    return [PlayerPosition.BOTTOM, PlayerPosition.TOP, PlayerPosition.LEFT, PlayerPosition.RIGHT]
+      .map((playerPosition, index) => {
+        const playerInPosition = this.props.players.find(player => player.position === playerPosition);
+        const playerCards = playerInPosition ? getPlayerCards(this.props.cards, playerPosition) : [];
+        return (
+          <PlayerArea
+            key={index}
+            position={playerPosition}
+            player={playerInPosition}
+            playerCards={playerCards}
+          />);
+      });
   }
 }
 

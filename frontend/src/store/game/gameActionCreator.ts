@@ -1,5 +1,4 @@
 import {ActionCreator, Dispatch} from 'redux';
-import {setPlayers} from '../player/playerActionCreator';
 import {
   AddGameFailureAction,
   AddGameRequestAction,
@@ -9,6 +8,8 @@ import {
   LoadGameSuccessAction
 } from './GameAction';
 import apiFetch from '../../common/apiFetch';
+import {setCards} from '../card/cardActionCreator';
+import {setPlayers} from '../player/playerActionCreator';
 
 
 const addGameRequest: ActionCreator<AddGameRequestAction> = () => ({
@@ -67,10 +68,11 @@ export function loadGame(gameId: string) {
           'Content-Type': 'application/json'
         }
       })
-      .then(payload => {
-        dispatch(loadGameSuccess());
-        dispatch(setPlayers(payload.players))
+      .then((payload) => {
+        dispatch(setCards(payload.cards));
+        dispatch(setPlayers(payload.players));
       })
+      .then(() => dispatch(loadGameSuccess()))
       .catch(ex =>
         dispatch(loadGameFailure(ex))
       )
