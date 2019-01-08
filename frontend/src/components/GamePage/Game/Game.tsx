@@ -11,6 +11,11 @@ export interface GameProps {
   gameId: string
   loading: boolean
   error?: Error
+  newPlayer: {
+    playerId?: string
+    loading: boolean
+    error?: Error
+  }
   players: PlayerData[]
   cards: CardsMap
   loadGameFunction: (gameId: string) => void
@@ -21,7 +26,6 @@ class Game extends React.Component<GameProps> {
 
   public componentDidMount() {
     this.props.loadGameFunction(this.props.gameId);
-    // this.props.joinGameFunction(this.props.gameId);
   }
 
   public render = () => {
@@ -31,6 +35,12 @@ class Game extends React.Component<GameProps> {
 
     if (this.props.error) {
       return (<div>There is an error!</div>);
+    }
+
+    if (!this.props.newPlayer.loading
+      && !this.props.newPlayer.error
+      && !this.props.newPlayer.playerId) {
+      this.props.joinGameFunction(this.props.gameId);
     }
 
     return (

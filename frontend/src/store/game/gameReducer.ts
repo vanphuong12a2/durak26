@@ -2,7 +2,7 @@ import {GameState} from '../ApplicationState';
 import {GameAction} from './GameAction';
 
 const initialState: GameState = {
-  loading: false,
+  loading: true,
   newGame: {
     loading: false
   }
