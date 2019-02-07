@@ -3,6 +3,9 @@ language: node_js
 node_js:
 - '11'
 
+services:
+- mongodb
+
 before_deploy:
 - /bin/sh -c "cd frontend; yarn build"
 
