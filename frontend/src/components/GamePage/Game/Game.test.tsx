@@ -1,10 +1,11 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
 import Game from './Game';
-import {aCard, anUnknownCard, cards} from '../../../common/TestData';
+import {aCard, anUnknownCard, cards, testStore} from '../../../common/TestData';
 import PlayerData, {PlayerPosition} from '../../../models/PlayerData';
 import {shallow} from 'enzyme';
 import {CardPosition} from '../../../models/CardsMap';
+import {Provider} from 'react-redux';
 
 describe('<Game />', () => {
 
@@ -15,19 +16,21 @@ describe('<Game />', () => {
         [CardPosition.HAND_BOTTOM]: [aCard],
         [CardPosition.TABLE]: [aCard, aCard],
       };
-      const component = create(<Game
-          gameId={'123'}
-          loading={false}
-          newPlayer={{playerId: 'id1', loading: false}}
-          players={[
-            new PlayerData('id1', 'Luffy', PlayerPosition.BOTTOM),
-            new PlayerData('id2', 'Sanji', PlayerPosition.TOP),
-            new PlayerData('id3', 'Nami', PlayerPosition.RIGHT),
-          ]}
-          cards={cardsMap}
-          loadGameFunction={jest.fn()}
-          joinGameFunction={jest.fn()}
-        />
+      const component = create(<Provider store={testStore}>
+          <Game
+            gameId={'123'}
+            loading={false}
+            newPlayer={{playerId: 'id1', loading: false}}
+            players={[
+              new PlayerData('id1', 'Luffy', PlayerPosition.BOTTOM),
+              new PlayerData('id2', 'Sanji', PlayerPosition.TOP),
+              new PlayerData('id3', 'Nami', PlayerPosition.RIGHT),
+            ]}
+            cards={cardsMap}
+            loadGameFunction={jest.fn()}
+            joinGameFunction={jest.fn()}
+          />
+        </Provider>
       );
       expect(component.toJSON()).toMatchSnapshot();
     });
