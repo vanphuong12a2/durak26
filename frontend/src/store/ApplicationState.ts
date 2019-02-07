@@ -28,4 +28,5 @@ export interface GameState {
     loading: boolean
     error?: Error
   }
+  playing: boolean
 }

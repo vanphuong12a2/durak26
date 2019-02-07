@@ -20,4 +20,19 @@ export interface AddPlayerFailureAction extends Action {
   error: Error
 }
 
-export type PlayerAction = SetPlayersAction | AddPlayerRequestAction | AddPlayerSuccessAction | AddPlayerFailureAction;
+export interface RemovePlayerRequestAction extends Action {
+  type: '@@player/REMOVE_PLAYER_REQUEST'
+}
+
+export interface RemovePlayerSuccessAction extends Action {
+  type: '@@player/REMOVE_PLAYER_SUCCESS',
+}
+
+export interface RemovePlayerFailureAction extends Action {
+  type: '@@player/REMOVE_PLAYER_FAILURE',
+  error: Error
+}
+
+export type PlayerAction = SetPlayersAction
+  | AddPlayerRequestAction | AddPlayerSuccessAction | AddPlayerFailureAction
+  | RemovePlayerRequestAction | RemovePlayerSuccessAction | RemovePlayerFailureAction;

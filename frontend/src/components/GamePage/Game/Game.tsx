@@ -1,10 +1,10 @@
 import React from 'react';
-import ControlArea from './ControlArea/ControlArea';
 import DealArea from './DealArea/DealArea';
 import PlayerArea from './PlayerArea/PlayerArea';
 import PlayerData, {PlayerPosition} from '../../../models/PlayerData';
 import {CardsMap, getCardsToDeal, getPlayerCards, getTableCards, getTrumpCard} from '../../../models/CardsMap';
 import Table from './Table/Table';
+import ControlAreaContainer from '../../../containers/ControlAreaContainer';
 import './Game.scss';
 
 export interface GameProps {
@@ -43,7 +43,7 @@ class Game extends React.Component<GameProps> {
 
     return (
       <div className='game'>
-        <ControlArea/>
+        <ControlAreaContainer/>
         <DealArea
           trumpCard={getTrumpCard(this.props.cards)}
           cardsToDeal={getCardsToDeal(this.props.cards)}

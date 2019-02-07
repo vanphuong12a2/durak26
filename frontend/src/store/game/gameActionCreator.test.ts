@@ -95,5 +95,5 @@ describe('game actions creator', () => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })
-  })
+  });
 });

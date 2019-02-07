@@ -15,15 +15,19 @@ module.exports = {
 
   findOne: async (req, res) => {
     const game = await Game.findOne({id: req.param('id')}).populate('players');
-    const filteredGame = {
-      ...game,
-      cards: {
-        ...game.cards,
-        [constant.CardPosition.TO_DEAL]: game.cards[constant.CardPosition.TO_DEAL].map(() => constant.hiddenCard)
-      }
-    };
+    if (game) {
+      const filteredGame = {
+        ...game,
+        cards: {
+          ...game.cards,
+          [constant.CardPosition.TO_DEAL]: game.cards[constant.CardPosition.TO_DEAL].map(() => constant.hiddenCard)
+        }
+      };
 
-    return res.json(filteredGame);
+      return res.json(filteredGame);
+    } else {
+      return res.notFound();
+    }
   },
 
   destroy: async (req, res) => {

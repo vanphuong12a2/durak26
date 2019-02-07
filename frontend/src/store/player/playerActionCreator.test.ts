@@ -1,6 +1,6 @@
 import fetchMock from 'fetch-mock';
 import {freshTestStore} from '../../common/TestData';
-import {addPlayer} from './playerActionCreator';
+import {addPlayer, removePlayer} from './playerActionCreator';
 
 describe('player actions creator', () => {
 
@@ -46,6 +46,47 @@ describe('player actions creator', () => {
       const store = freshTestStore();
 
       return store.dispatch(addPlayer(gameId)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    })
+  });
+
+  describe('remove player async actions', () => {
+
+    afterEach(() => {
+      fetchMock.restore()
+    });
+
+    it('creates REMOVE_PLAYER_SUCCESS when adding player has been done', () => {
+      fetchMock.deleteOnce('/player/me', {
+        status: 200,
+        body: JSON.stringify({})
+      });
+
+      const expectedActions = [
+        {type: '@@player/REMOVE_PLAYER_REQUEST'},
+        {type: '@@player/REMOVE_PLAYER_SUCCESS'},
+      ];
+
+      const store = freshTestStore();
+      return store.dispatch(removePlayer()).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    });
+
+    it('creates REMOVE_PLAYER_FAILURE when adding player has failed', () => {
+      fetchMock.deleteOnce('/player/me', {
+        status: 500
+      });
+
+      const expectedActions = [
+        {type: '@@player/REMOVE_PLAYER_REQUEST'},
+        {type: '@@player/REMOVE_PLAYER_FAILURE', error: new Error('Status code is not 200')}
+      ];
+
+      const store = freshTestStore();
+
+      return store.dispatch(removePlayer()).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })

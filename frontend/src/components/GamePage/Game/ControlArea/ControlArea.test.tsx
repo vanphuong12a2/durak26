@@ -6,7 +6,10 @@ describe('<ControlArea />', () => {
 
   describe('Snapshots', () => {
     it('renders correctly', () => {
-      const component = create(<ControlArea />);
+      const component = create(<ControlArea
+        playing={false}
+        exitGameFunction={jest.fn()}
+      />);
       expect(component.toJSON()).toMatchSnapshot();
     });
   });

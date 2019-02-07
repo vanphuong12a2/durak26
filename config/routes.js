@@ -27,6 +27,7 @@ module.exports.routes = {
 
   'POST /player': 'PlayerController.create',
   'GET /player/me': 'PlayerController.findMe',
+  'DELETE /player/me': 'PlayerController.destroyMe',
   'DELETE /player/:id': 'PlayerController.destroy',
 
 

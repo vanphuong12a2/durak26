@@ -22,7 +22,8 @@ const getInitialApplicationState = () => (
       loading: false,
       newGame: {
         loading: false
-      }
+      },
+      playing: false
     },
     card: {
       cards

@@ -5,7 +5,8 @@ const initialState: GameState = {
   loading: true,
   newGame: {
     loading: false
-  }
+  },
+  playing: false
 };
 
 const gameReducer = (state: GameState = initialState, action: GameAction) => {
