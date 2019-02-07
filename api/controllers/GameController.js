@@ -24,6 +24,11 @@ module.exports = {
     };
 
     return res.json(filteredGame);
+  },
+
+  destroy: async (req, res) => {
+    const destroyedGame = await Game.destroyOne({id: req.param('id')});
+    return res.ok(destroyedGame);
   }
 };
 

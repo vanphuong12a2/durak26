@@ -89,7 +89,7 @@ describe('<Game />', () => {
           gameId={'123'}
           loading={false}
           players={[]}
-          newPlayer={{loading: true}}
+          newPlayer={{loading: false}}
           cards={cards}
           loadGameFunction={jest.fn()}
           joinGameFunction={joinGameFunction}
@@ -99,7 +99,7 @@ describe('<Game />', () => {
       expect(joinGameFunction).toBeCalledTimes(1);
     });
 
-    it('should load players & cards on mounting & NOT join game when playerId is defined', () => {
+    it('should NOT join game when playerId is defined', () => {
       const joinGameFunction = jest.fn();
       shallow(
         <Game

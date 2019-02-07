@@ -13,7 +13,7 @@ const playerReducer = (state: PlayerState = initialState, action: PlayerAction) 
     case '@@player/SET_PLAYERS':
       return {...state, players: action.players};
     case '@@player/ADD_PLAYER_REQUEST':
-      return {...state, newPlayer: {...state.newPlayer, loading: true}};
+      return {...state, newPlayer: {...state.newPlayer, loading: true, error: undefined}};
     case '@@player/ADD_PLAYER_SUCCESS':
       return {...state, newPlayer: {...state.newPlayer, playerId: action.playerId, loading: false}};
     case '@@player/ADD_PLAYER_FAILURE':

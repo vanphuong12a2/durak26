@@ -8,15 +8,27 @@
 module.exports = {
 
   create: async (req, res) => {
+    const createdPlayer = await Player.create(req.body).fetch();
+    req.session.currentPlayer = {
+      playerId: createdPlayer.id,
+      gameId: createdPlayer.gameId
+    };
+    return res.json(createdPlayer);
+  },
 
-    if (req.session.playerId) {
-      return res.badRequest('Already in a game');
+  findMe: async (req, res) => {
+    const currentPlayer = req.session.currentPlayer;
+    if (currentPlayer) {
+      return res.json(currentPlayer);
     } else {
-      const createdPlayer = await Player.create(req.body).fetch();
-      req.session.playerId = createdPlayer.id;
-      req.session.gameId = createdPlayer.gameId;
-      return res.json(createdPlayer);
+      return res.notFound();
     }
+  },
+
+  destroy: async (req, res) => {
+    const destroyedPlayer = await Player.destroyOne({id: req.param('id')});
+    req.session.currentPlayer = undefined;
+    return res.ok(destroyedPlayer);
   }
 };
 

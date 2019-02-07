@@ -17,14 +17,20 @@
     "sails-mongo": "^1.0.1"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3"
+    "@sailshq/eslint": "^4.19.3",
+    "@types/mocha": "^5.2.5",
+    "mocha": "^5.2.0",
+    "nock": "^10.0.6",
+    "supertest": "^3.3.0",
+    "supertest-session": "^3.3.0"
   },
   "scripts": {
     "postinstall": "cd frontend && yarn install",
     "start": "NODE_ENV=production sails lift",
-    "test": "yarn run lint && yarn run custom-tests && echo 'Done.'",
+    "test": "yarn run lint && yarn run backend-tests && yarn run frontend-tests",
     "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "custom-tests": "cd frontend && yarn test"
+    "backend-tests": "node ./node_modules/mocha/bin/mocha test/lifecycle.test.js test/integration/**/*.test.js",
+    "frontend-tests": "cd frontend && yarn test"
   },
   "main": "app.js",
   "repository": {
