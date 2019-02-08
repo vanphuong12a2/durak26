@@ -8,7 +8,10 @@ Link: https://durak26.herokuapp.com
 
 ### Running locally
 
-Start mongodb server with `mongod` and create a db name `durak26` (configure at ./config/datastores.js)
+Start mongodb server
+```$xslt
+mongod
+```
 
 Start the server:
 ```$xslt

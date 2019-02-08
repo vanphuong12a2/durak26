@@ -9,10 +9,8 @@ const mapStateToProps = (state: ApplicationState) => (
   {...state.game.newGame}
 );
 
-const mapDispatchToProps = (dispatch: any) => (
-  {
-    newGameButtonOnClick: () => dispatch(addGame())
-  }
-);
+const mapDispatchToProps = (dispatch: any) => ({
+  newGameButtonOnClick: () => dispatch(addGame())
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewGameButton));

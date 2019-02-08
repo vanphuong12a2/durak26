@@ -6,6 +6,7 @@ import PlayerData, {PlayerPosition} from '../../../models/PlayerData';
 import {shallow} from 'enzyme';
 import {CardPosition} from '../../../models/CardsMap';
 import {Provider} from 'react-redux';
+import {MemoryRouter} from 'react-router';
 
 describe('<Game />', () => {
 
@@ -16,27 +17,31 @@ describe('<Game />', () => {
         [CardPosition.HAND_BOTTOM]: [aCard],
         [CardPosition.TABLE]: [aCard, aCard],
       };
-      const component = create(<Provider store={testStore}>
-          <Game
-            gameId={'123'}
-            loading={false}
-            newPlayer={{playerId: 'id1', loading: false}}
-            players={[
-              new PlayerData('id1', 'Luffy', PlayerPosition.BOTTOM),
-              new PlayerData('id2', 'Sanji', PlayerPosition.TOP),
-              new PlayerData('id3', 'Nami', PlayerPosition.RIGHT),
-            ]}
-            cards={cardsMap}
-            loadGameFunction={jest.fn()}
-            joinGameFunction={jest.fn()}
-          />
-        </Provider>
+      const component = create(
+        <MemoryRouter>
+          <Provider store={testStore}>
+            <Game
+              gameId={'123'}
+              loading={false}
+              newPlayer={{playerId: 'id1', loading: false}}
+              players={[
+                new PlayerData('id1', 'Luffy', PlayerPosition.BOTTOM),
+                new PlayerData('id2', 'Sanji', PlayerPosition.TOP),
+                new PlayerData('id3', 'Nami', PlayerPosition.RIGHT),
+              ]}
+              cards={cardsMap}
+              loadGameFunction={jest.fn()}
+              joinGameFunction={jest.fn()}
+            />
+          </Provider>
+        </MemoryRouter>
       );
       expect(component.toJSON()).toMatchSnapshot();
     });
 
     it('renders loading state correctly', () => {
-      const component = create(<Game
+      const component = create(
+        <Game
           gameId={'123'}
           loading={true}
           newPlayer={{playerId: 'somePlayer', loading: false}}

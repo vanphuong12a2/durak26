@@ -6,13 +6,15 @@ exports[`<ControlArea /> Snapshots renders correctly 1`] = `
 >
   <a
     className="waves-effect waves-light btn-small"
+    id="start-game-btn"
     onClick={[Function]}
   >
     Start game
   </a>
   <a
     className="waves-effect waves-light red lighten-2 btn-small"
-    onClick={[MockFunction]}
+    id="exit-game-btn"
+    onClick={[Function]}
   >
     Exit
   </a>

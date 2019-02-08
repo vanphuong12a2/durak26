@@ -3,6 +3,7 @@ import {create} from 'react-test-renderer';
 import GamePage from './GamePage';
 import {Provider} from 'react-redux';
 import {testStore} from '../../common/TestData';
+import {MemoryRouter} from 'react-router';
 
 describe('<GamePage />', () => {
 
@@ -10,9 +11,11 @@ describe('<GamePage />', () => {
     it('renders correctly', () => {
       const match = {params: {gameId: 'someId'}};
       const app = create(
-        <Provider store={testStore}>
-          <GamePage match={match}/>
-        </Provider>);
+        <MemoryRouter>
+          <Provider store={testStore}>
+            <GamePage match={match}/>
+          </Provider>
+        </MemoryRouter>);
       expect(app.toJSON()).toMatchSnapshot();
     });
   });
