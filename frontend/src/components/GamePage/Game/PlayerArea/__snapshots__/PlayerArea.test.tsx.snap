@@ -8,6 +8,8 @@ exports[`<PlayerArea /> Snapshots renders empty player area correctly 1`] = `
     className="player-info"
   >
     some-name
+    -
+    d
   </div>
   <div
     className="card-set"
@@ -28,6 +30,8 @@ exports[`<PlayerArea /> Snapshots renders player area with cards correctly 1`] =
     className="player-info"
   >
     some-name
+    -
+    d
   </div>
   <div
     className="card-set"

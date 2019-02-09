@@ -55,7 +55,7 @@ export function addPlayer(gameId: string) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: 'Player name',
+          name: 'player',
           gameId
         })
       })

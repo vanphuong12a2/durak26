@@ -15,7 +15,7 @@ const PlayerArea = (props: Props) => {
   const areaWithPlayer = (player: PlayerData, cards: CardData[]) => {
     return (
       <React.Fragment>
-        <div className='player-info'>{player.name}</div>
+        <div className='player-info'>{player.name}-{player.id.charAt(player.id.length-1)}</div>
         <CardSet cards={cards}/>
       </React.Fragment>
     )
