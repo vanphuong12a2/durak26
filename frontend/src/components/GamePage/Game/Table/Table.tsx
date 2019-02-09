@@ -1,6 +1,6 @@
 import React from 'react';
 import CardSet from '../CardSet/CardSet';
-import CardData, {UNKNOWN_VALUE} from '../../../../models/CardData';
+import {CardData, hiddenCard} from '../../../../models/CardsMap';
 import './Table.scss';
 
 interface Props {
@@ -13,8 +13,7 @@ const Table = (props: Props) => {
   const attackCards = props.cards.filter((card, index) => index % 2 === 0);
   const defendCards = props.cards.filter((card, index) => index % 2 !== 0);
   if (defendingState) {
-    const finalHiddenCard = new CardData(UNKNOWN_VALUE, UNKNOWN_VALUE);
-    defendCards.push(finalHiddenCard);
+    defendCards.push(hiddenCard);
   }
 
   return (

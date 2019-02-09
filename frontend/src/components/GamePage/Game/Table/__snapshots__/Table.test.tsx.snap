@@ -20,25 +20,17 @@ exports[`<Table /> Snapshots renders correctly 1`] = `
             className="card"
             src="2D.svg"
           />
-          <img
-            className="card"
-            src="KC.svg"
-          />
         </div>
       </div>
       <div
-        className="defend-set defending"
+        className="defend-set"
       >
         <div
           className="card-set"
         >
           <img
             className="card"
-            src="7S.svg"
-          />
-          <img
-            className="card"
-            src="card_back.svg"
+            src="KS.svg"
           />
         </div>
       </div>

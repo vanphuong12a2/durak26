@@ -1,8 +1,8 @@
 import React from 'react';
-import './DealArea.scss';
 import CardSet from '../CardSet/CardSet';
-import CardData from '../../../../models/CardData';
 import Card from '../CardSet/Card/Card';
+import './DealArea.scss';
+import {CardData} from '../../../../models/CardsMap';
 
 interface Props {
   cardsToDeal: CardData[]

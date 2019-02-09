@@ -1,8 +1,8 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
 import Game from './Game';
-import {aCard, anUnknownCard, cards, testStore} from '../../../common/TestData';
-import PlayerData, {PlayerPosition} from '../../../models/PlayerData';
+import {aCard, aHiddenCard, anotherCard, cards, testStore} from '../../../common/TestData';
+import PlayerData from '../../../models/PlayerData';
 import {shallow} from 'enzyme';
 import {CardPosition} from '../../../models/CardsMap';
 import {Provider} from 'react-redux';
@@ -13,8 +13,7 @@ describe('<Game />', () => {
   describe('Snapshots', () => {
     it('renders correctly', () => {
       const cardsMap = {
-        [CardPosition.TO_DEAL]: [anUnknownCard],
-        [CardPosition.HAND_BOTTOM]: [aCard],
+        [CardPosition.TO_DEAL]: [aHiddenCard],
         [CardPosition.TABLE]: [aCard, aCard],
       };
       const component = create(
@@ -25,9 +24,9 @@ describe('<Game />', () => {
               loading={false}
               newPlayer={{playerId: 'id1', loading: false}}
               players={[
-                new PlayerData('id1', 'Luffy', PlayerPosition.BOTTOM),
-                new PlayerData('id2', 'Sanji', PlayerPosition.TOP),
-                new PlayerData('id3', 'Nami', PlayerPosition.RIGHT),
+                new PlayerData('id1', 'Luffy', [aCard, anotherCard]),
+                new PlayerData('id2', 'Sanji', [aCard]),
+                new PlayerData('id3', 'Nami', []),
               ]}
               cards={cardsMap}
               loadGameFunction={jest.fn()}

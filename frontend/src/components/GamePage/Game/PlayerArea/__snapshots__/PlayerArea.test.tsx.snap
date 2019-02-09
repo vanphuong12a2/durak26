@@ -3,7 +3,21 @@
 exports[`<PlayerArea /> Snapshots renders empty player area correctly 1`] = `
 <div
   className="player-area right"
-/>
+>
+  <div
+    className="player-info"
+  >
+    some-name
+  </div>
+  <div
+    className="card-set"
+  >
+    <img
+      className="card"
+      src="2D.svg"
+    />
+  </div>
+</div>
 `;
 
 exports[`<PlayerArea /> Snapshots renders player area with cards correctly 1`] = `

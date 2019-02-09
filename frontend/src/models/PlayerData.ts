@@ -1,19 +1,14 @@
-export enum PlayerPosition {
-  BOTTOM = 'BOTTOM',
-  TOP = 'TOP',
-  RIGHT = 'RIGHT',
-  LEFT = 'LEFT',
-}
+import {CardData} from './CardsMap';
 
 class PlayerData {
   public id: string;
   public name: string;
-  public position: PlayerPosition;
+  public cards: CardData[];
 
-  constructor(id: string, name: string, position: PlayerPosition) {
+  constructor(id: string, name: string, cards: CardData[]) {
     this.id = id;
     this.name = name;
-    this.position = position;
+    this.cards = cards;
   }
 }
 

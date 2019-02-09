@@ -1,6 +1,6 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
-import {aCard, anUnknownCard} from '../../../../../common/TestData';
+import {aCard, aHiddenCard} from '../../../../../common/TestData';
 import Card from './Card';
 
 describe('<Card />', () => {
@@ -12,7 +12,7 @@ describe('<Card />', () => {
     });
 
     it('renders face-down card correctly', () => {
-      const component = create(<Card card={anUnknownCard}/>);
+      const component = create(<Card card={aHiddenCard}/>);
       expect(component.toJSON()).toMatchSnapshot();
     });
   });

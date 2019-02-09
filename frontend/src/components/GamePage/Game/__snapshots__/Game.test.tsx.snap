@@ -49,6 +49,10 @@ exports[`<Game /> Snapshots renders correctly 1`] = `
         className="card"
         src="2D.svg"
       />
+      <img
+        className="card"
+        src="KS.svg"
+      />
     </div>
   </div>
   <div
@@ -61,11 +65,13 @@ exports[`<Game /> Snapshots renders correctly 1`] = `
     </div>
     <div
       className="card-set"
-    />
+    >
+      <img
+        className="card"
+        src="2D.svg"
+      />
+    </div>
   </div>
-  <div
-    className="player-area left"
-  />
   <div
     className="player-area right"
   >
@@ -78,6 +84,9 @@ exports[`<Game /> Snapshots renders correctly 1`] = `
       className="card-set"
     />
   </div>
+  <div
+    className="player-area left"
+  />
   <div
     className="table"
   >

@@ -1,13 +1,9 @@
-import CardData from './CardData';
-import {PlayerPosition} from './PlayerData';
+export type CardData = string;
+export const hiddenCard: CardData = '';
 
 export enum CardPosition {
   TO_DEAL = 'TO_DEAL',
   TRUMP = 'TRUMP',
-  HAND_TOP = 'HAND_TOP',
-  HAND_BOTTOM = 'HAND_BOTTOM',
-  HAND_RIGHT = 'HAND_RIGHT',
-  HAND_LEFT = 'HAND_LEFT',
   TABLE = 'TABLE'
 }
 
@@ -31,10 +27,4 @@ export const getTableCards = (cards: CardsMap): CardData[] => {
 
 export const getCardsToDeal = (cards: CardsMap): CardData[] => {
   return getSafe(cards, CardPosition.TO_DEAL);
-};
-
-export const getPlayerCards = (cards: CardsMap, playerPosition: PlayerPosition): CardData[] => {
-  const cardPosition = 'HAND_' + playerPosition;
-  // @ts-ignore
-  return getSafe(cards, CardPosition[cardPosition]);
 };

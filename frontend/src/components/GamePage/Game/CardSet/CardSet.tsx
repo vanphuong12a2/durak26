@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card/Card';
-import CardData from '../../../../models/CardData';
 import './CardSet.scss';
+import {CardData} from '../../../../models/CardsMap';
 
 interface Props {
   cards: CardData[]

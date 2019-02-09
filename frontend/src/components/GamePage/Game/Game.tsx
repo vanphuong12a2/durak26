@@ -1,10 +1,11 @@
 import React from 'react';
 import DealArea from './DealArea/DealArea';
 import PlayerArea from './PlayerArea/PlayerArea';
-import PlayerData, {PlayerPosition} from '../../../models/PlayerData';
-import {CardsMap, getCardsToDeal, getPlayerCards, getTableCards, getTrumpCard} from '../../../models/CardsMap';
+import PlayerData from '../../../models/PlayerData';
+import {CardsMap, getCardsToDeal, getTableCards, getTrumpCard} from '../../../models/CardsMap';
 import Table from './Table/Table';
 import ControlAreaContainer from '../../../containers/ControlAreaContainer';
+import {allPlayerPositions} from '../../../common/PlayerPosition';
 import './Game.scss';
 
 export interface GameProps {
@@ -57,19 +58,17 @@ class Game extends React.Component<GameProps> {
   };
 
   private getPlayerAreas = () => {
-    return [PlayerPosition.BOTTOM, PlayerPosition.TOP, PlayerPosition.LEFT, PlayerPosition.RIGHT]
+    return allPlayerPositions
       .map((playerPosition, index) => {
-        const playerInPosition = this.props.players.find(player => player.position === playerPosition);
-        const playerCards = playerInPosition ? getPlayerCards(this.props.cards, playerPosition) : [];
         return (
           <PlayerArea
             key={index}
             position={playerPosition}
-            player={playerInPosition}
-            playerCards={playerCards}
+            player={this.props.players[index]}
           />);
       });
   }
+
 }
 
 export default Game;

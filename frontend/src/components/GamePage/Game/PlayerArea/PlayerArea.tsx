@@ -1,13 +1,13 @@
 import React from 'react';
 import './PlayerArea.scss';
-import CardData from '../../../../models/CardData';
-import PlayerData, {PlayerPosition} from '../../../../models/PlayerData';
+import PlayerData from '../../../../models/PlayerData';
+import {CardData} from '../../../../models/CardsMap';
+import {PlayerPosition} from '../../../../common/PlayerPosition';
 import CardSet from '../CardSet/CardSet';
 
 interface Props {
   position: PlayerPosition
   player?: PlayerData
-  playerCards: CardData[]
 }
 
 const PlayerArea = (props: Props) => {
@@ -25,7 +25,7 @@ const PlayerArea = (props: Props) => {
 
   return (
     <div className={`player-area ${PlayerPosition[props.position].toLowerCase()}`}>
-      {props.player ? areaWithPlayer(props.player, props.playerCards) : areaWithoutPlayer}
+      {props.player ? areaWithPlayer(props.player, props.player.cards) : areaWithoutPlayer}
     </div>
   );
 };
