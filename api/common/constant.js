@@ -6,7 +6,10 @@ const CardPosition = {
 
 const hiddenCard = '';
 
+const MAX_NUMBER_OF_PLAYERS = 4;
+
 module.exports = {
   CardPosition,
-  hiddenCard
+  hiddenCard,
+  MAX_NUMBER_OF_PLAYERS
 };

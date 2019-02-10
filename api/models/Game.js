@@ -11,7 +11,8 @@ module.exports = {
 
   attributes: {
     playing: {
-      type: 'boolean'
+      type: 'boolean',
+      defaultsTo: false
     },
     cards: {
       type: 'json',

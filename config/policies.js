@@ -17,6 +17,4 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  'game/create': 'isNotPlaying',
-  'player/create': 'isNotPlaying',
 };

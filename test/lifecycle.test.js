@@ -5,12 +5,16 @@ before(function (done) {
   this.timeout(5000);
 
   sails.lift({
-    hooks: {grunt: false},
-    log: {level: 'warn'},
-  }, (err) => {
+    models: {
+      migrate: 'drop'
+    }
+  }, async (err) => {
     if (err) {
       return done(err);
     }
+
+    await Game.create({id: '542c2b97bac0595474108b48'});
+
     return done();
   });
 });
