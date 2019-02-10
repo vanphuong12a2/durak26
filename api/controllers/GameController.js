@@ -14,7 +14,9 @@ module.exports = {
   },
 
   findOne: async (req, res) => {
-    const game = await Game.findOne({id: req.param('id')}).populate('players');
+    let gameId = req.param('id');
+    sails.sockets.join(req, gameId);
+    const game = await Game.findOne({id: gameId}).populate('players');
     if (game) {
       const filteredGame = {
         ...game,

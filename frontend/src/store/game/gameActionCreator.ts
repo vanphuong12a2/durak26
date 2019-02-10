@@ -10,7 +10,7 @@ import {
 import apiFetch from '../../common/apiFetch';
 import {setCards} from '../card/cardActionCreator';
 import {setPlayers} from '../player/playerActionCreator';
-
+import socket from '../../common/socket';
 
 const addGameRequest: ActionCreator<AddGameRequestAction> = () => ({
   type: '@@game/ADD_GAME_REQUEST'
@@ -60,21 +60,16 @@ const loadGameFailure: ActionCreator<LoadGameFailureAction> = (error: Error) => 
 export function loadGame(gameId: string) {
   return (dispatch: Dispatch) => {
     dispatch(loadGameRequest());
-    return apiFetch(`/game/${gameId}`,
-      {
-        method: 'get',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+    return new Promise((resolve) => socket.get(`/game/${gameId}`,
+      (resData: any, jwres: any) => {
+        if (jwres.statusCode === 200) {
+          dispatch(setCards(resData.cards));
+          dispatch(setPlayers(resData.players));
+          dispatch(loadGameSuccess());
+        } else {
+          dispatch(loadGameFailure(new Error('Status code is not 200')));
         }
-      })
-      .then((payload) => {
-        dispatch(setCards(payload.cards));
-        dispatch(setPlayers(payload.players));
-      })
-      .then(() => dispatch(loadGameSuccess()))
-      .catch(ex =>
-        dispatch(loadGameFailure(ex))
-      )
+        resolve();
+      }));
   }
 }

@@ -1,6 +1,14 @@
 import fetchMock from 'fetch-mock';
 import {cards, freshTestStore} from '../../common/TestData';
 import {addGame, loadGame} from './gameActionCreator';
+import socket from '../../common/socket';
+
+jest.mock('../../common/socket', () => {
+  return {
+    get: jest.fn()
+  }
+});
+const testSocket: any = socket;
 
 describe('game actions creator', () => {
 
@@ -63,10 +71,9 @@ describe('game actions creator', () => {
         cards
       };
 
-      fetchMock.getOnce('/game/123', {
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(gamePayload)
-      });
+      testSocket.get.mockImplementation(
+        (url: string, cb: (resData: any, jwres: any) => void) => cb(gamePayload, {statusCode: 200, body: gamePayload})
+      );
 
       const expectedActions = [
         {type: '@@game/LOAD_GAME_REQUEST'},
@@ -83,7 +90,10 @@ describe('game actions creator', () => {
 
     it('creates LOAD_GAME_FAILURE when loading game has failed', () => {
       const gameId = '123';
-      fetchMock.getOnce('/game/123', {status: 404});
+
+      testSocket.get.mockImplementation(
+        (url: string, cb: (resData: any, jwres: any) => void) => cb({}, {statusCode: 404})
+      );
 
       const expectedActions = [
         {type: '@@game/LOAD_GAME_REQUEST'},

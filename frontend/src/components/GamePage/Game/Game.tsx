@@ -6,6 +6,7 @@ import {CardsMap, getCardsToDeal, getTableCards, getTrumpCard} from '../../../mo
 import Table from './Table/Table';
 import ControlAreaContainer from '../../../containers/ControlAreaContainer';
 import {allPlayerPositions} from '../../../common/PlayerPosition';
+import socket from '../../../common/socket';
 import './Game.scss';
 
 export interface GameProps {
@@ -21,6 +22,8 @@ export interface GameProps {
   cards: CardsMap
   loadGameFunction: (gameId: string) => void
   joinGameFunction: (gameId: string) => void
+  addPlayerFunction: (player: PlayerData) => void
+  removePlayerFunction: (player: PlayerData) => void
 }
 
 class Game extends React.Component<GameProps> {
@@ -31,6 +34,16 @@ class Game extends React.Component<GameProps> {
     if (!this.props.newPlayer.playerId) {
       this.props.joinGameFunction(this.props.gameId);
     }
+
+    socket.on('addPlayer', (player: PlayerData) => {
+      console.log('Player `' + player.id + '` joined the party!');
+      this.props.addPlayerFunction(player);
+    });
+
+    socket.on('removePlayer', (player: PlayerData) => {
+      console.log('Player `' + player.id + '` left the party!');
+      this.props.removePlayerFunction(player);
+    });
   }
 
   public render = () => {

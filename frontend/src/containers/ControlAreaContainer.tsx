@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {ApplicationState} from '../store/ApplicationState';
 import ControlArea from '../components/GamePage/Game/ControlArea/ControlArea';
-import {removePlayer} from '../store/player/playerActionCreator';
+import {exitPlayer} from '../store/player/playerActionCreator';
 import {withRouter} from 'react-router';
 
 const mapStateToProps = (state: ApplicationState) => ({
@@ -10,7 +10,7 @@ const mapStateToProps = (state: ApplicationState) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  exitGameFunction: () => dispatch(removePlayer())
+  exitGameFunction: () => dispatch(exitPlayer())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ControlArea));

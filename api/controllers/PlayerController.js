@@ -4,6 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+const constant = require('./../common/constant');
 
 module.exports = {
 
@@ -13,6 +14,14 @@ module.exports = {
       playerId: createdPlayer.id,
       gameId: createdPlayer.gameId
     };
+
+    const filterPlayer = {
+      ...createdPlayer,
+      cards: createdPlayer.cards.map(() => constant.hiddenCard)
+    };
+
+    sails.sockets.broadcast(createdPlayer.gameId, 'addPlayer', filterPlayer, req);
+
     return res.json(createdPlayer);
   },
 
@@ -30,16 +39,12 @@ module.exports = {
     if (currentPlayer) {
       const destroyedPlayer = await Player.destroyOne({id: currentPlayer.playerId});
       req.session.currentPlayer = undefined;
+      sails.sockets.leave(req, destroyedPlayer.gameId);
+      sails.sockets.broadcast(destroyedPlayer.gameId, 'removePlayer', {...destroyedPlayer, cards: []}, req);
       return res.ok(destroyedPlayer);
     } else {
       return res.ok();
     }
-  },
-
-  destroy: async (req, res) => {
-    const destroyedPlayer = await Player.destroyOne({id: req.param('id')});
-    req.session.currentPlayer = undefined;
-    return res.ok(destroyedPlayer);
   }
 };
 

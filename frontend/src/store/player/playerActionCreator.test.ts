@@ -1,6 +1,14 @@
 import fetchMock from 'fetch-mock';
 import {freshTestStore} from '../../common/TestData';
-import {addPlayer, removePlayer} from './playerActionCreator';
+import {exitPlayer, newPlayer} from './playerActionCreator';
+import socket from '../../common/socket';
+
+jest.mock('../../common/socket', () => {
+  return {
+    delete: jest.fn()
+  }
+});
+const testSocket: any = socket;
 
 describe('player actions creator', () => {
 
@@ -23,12 +31,12 @@ describe('player actions creator', () => {
       });
 
       const expectedActions = [
-        {type: '@@player/ADD_PLAYER_REQUEST'},
-        {type: '@@player/ADD_PLAYER_SUCCESS', playerId: '123'},
+        {type: '@@player/NEW_PLAYER_REQUEST'},
+        {type: '@@player/NEW_PLAYER_SUCCESS', playerId: '123'},
       ];
 
       const store = freshTestStore();
-      return store.dispatch(addPlayer(gameId)).then(() => {
+      return store.dispatch(newPlayer(gameId)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     });
@@ -39,13 +47,13 @@ describe('player actions creator', () => {
       });
 
       const expectedActions = [
-        {type: '@@player/ADD_PLAYER_REQUEST'},
-        {type: '@@player/ADD_PLAYER_FAILURE', error: new Error('Status code is not 200')}
+        {type: '@@player/NEW_PLAYER_REQUEST'},
+        {type: '@@player/NEW_PLAYER_FAILURE', error: new Error('Status code is not 200')}
       ];
 
       const store = freshTestStore();
 
-      return store.dispatch(addPlayer(gameId)).then(() => {
+      return store.dispatch(newPlayer(gameId)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })
@@ -57,36 +65,35 @@ describe('player actions creator', () => {
       fetchMock.restore()
     });
 
-    it('creates REMOVE_PLAYER_SUCCESS when adding player has been done', () => {
-      fetchMock.deleteOnce('/player/me', {
-        status: 200,
-        body: JSON.stringify({})
-      });
+    it('creates EXIT_PLAYER_SUCCESS when removing the current player has been done', () => {
+      testSocket.delete.mockImplementation(
+        (url: string, cb: (resData: any, jwres: any) => void) => cb({}, {statusCode: 200})
+      );
 
       const expectedActions = [
-        {type: '@@player/REMOVE_PLAYER_REQUEST'},
-        {type: '@@player/REMOVE_PLAYER_SUCCESS'},
+        {type: '@@player/EXIT_PLAYER_REQUEST'},
+        {type: '@@player/EXIT_PLAYER_SUCCESS'},
       ];
 
       const store = freshTestStore();
-      return store.dispatch(removePlayer()).then(() => {
+      return store.dispatch(exitPlayer()).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     });
 
-    it('creates REMOVE_PLAYER_FAILURE when adding player has failed', () => {
-      fetchMock.deleteOnce('/player/me', {
-        status: 500
-      });
+    it('creates EXIT_PLAYER_FAILURE when removing the  current player has failed', () => {
+      testSocket.delete.mockImplementation(
+        (url: string, cb: (resData: any, jwres: any) => void) => cb({}, {statusCode: 500})
+      );
 
       const expectedActions = [
-        {type: '@@player/REMOVE_PLAYER_REQUEST'},
-        {type: '@@player/REMOVE_PLAYER_FAILURE', error: new Error('Status code is not 200')}
+        {type: '@@player/EXIT_PLAYER_REQUEST'},
+        {type: '@@player/EXIT_PLAYER_FAILURE', error: new Error('Status code is not 200')}
       ];
 
       const store = freshTestStore();
 
-      return store.dispatch(removePlayer()).then(() => {
+      return store.dispatch(exitPlayer()).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })

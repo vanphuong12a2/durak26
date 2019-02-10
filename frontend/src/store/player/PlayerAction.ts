@@ -6,33 +6,44 @@ export interface SetPlayersAction extends Action {
   players: PlayerData[]
 }
 
-export interface AddPlayerRequestAction extends Action {
-  type: '@@player/ADD_PLAYER_REQUEST'
+export interface NewPlayerRequestAction extends Action {
+  type: '@@player/NEW_PLAYER_REQUEST'
 }
 
-export interface AddPlayerSuccessAction extends Action {
-  type: '@@player/ADD_PLAYER_SUCCESS',
+export interface NewPlayerSuccessAction extends Action {
+  type: '@@player/NEW_PLAYER_SUCCESS',
   playerId: string
 }
 
-export interface AddPlayerFailureAction extends Action {
-  type: '@@player/ADD_PLAYER_FAILURE',
+export interface NewPlayerFailureAction extends Action {
+  type: '@@player/NEW_PLAYER_FAILURE',
   error: Error
 }
 
-export interface RemovePlayerRequestAction extends Action {
-  type: '@@player/REMOVE_PLAYER_REQUEST'
+export interface ExitPlayerRequestAction extends Action {
+  type: '@@player/EXIT_PLAYER_REQUEST'
 }
 
-export interface RemovePlayerSuccessAction extends Action {
-  type: '@@player/REMOVE_PLAYER_SUCCESS',
+export interface ExitPlayerSuccessAction extends Action {
+  type: '@@player/EXIT_PLAYER_SUCCESS',
 }
 
-export interface RemovePlayerFailureAction extends Action {
-  type: '@@player/REMOVE_PLAYER_FAILURE',
+export interface ExitPlayerFailureAction extends Action {
+  type: '@@player/EXIT_PLAYER_FAILURE',
   error: Error
+}
+
+export interface AddPlayerAction extends Action {
+  type: '@@player/ADD_PLAYER',
+  player: PlayerData
+}
+
+export interface RemovePlayerAction extends Action {
+  type: '@@player/REMOVE_PLAYER',
+  player: PlayerData
 }
 
 export type PlayerAction = SetPlayersAction
-  | AddPlayerRequestAction | AddPlayerSuccessAction | AddPlayerFailureAction
-  | RemovePlayerRequestAction | RemovePlayerSuccessAction | RemovePlayerFailureAction;
+  | NewPlayerRequestAction | NewPlayerSuccessAction | NewPlayerFailureAction
+  | ExitPlayerRequestAction | ExitPlayerSuccessAction | ExitPlayerFailureAction
+  | AddPlayerAction | RemovePlayerAction;

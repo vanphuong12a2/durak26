@@ -12,19 +12,19 @@ describe('player reducer', () => {
   describe('add player', () => {
 
     it('should change to loading state', () => {
-      const playerStore = playerReducer(undefined, {type: '@@player/ADD_PLAYER_REQUEST'});
+      const playerStore = playerReducer(undefined, {type: '@@player/NEW_PLAYER_REQUEST'});
       expect(playerStore.newPlayer.loading).toEqual(true);
     });
 
     it('should assign error', () => {
       const error = new Error('someError');
-      const playerStore = playerReducer(undefined, {type: '@@player/ADD_PLAYER_FAILURE', error});
+      const playerStore = playerReducer(undefined, {type: '@@player/NEW_PLAYER_FAILURE', error});
       expect(playerStore.newPlayer.loading).toEqual(false);
       expect(playerStore.newPlayer.error).toEqual(error);
     });
 
     it('should assign player id', () => {
-      const playerStore = playerReducer(undefined, {type: '@@player/ADD_PLAYER_SUCCESS', playerId: '123'});
+      const playerStore = playerReducer(undefined, {type: '@@player/NEW_PLAYER_SUCCESS', playerId: '123'});
       expect(playerStore.newPlayer.playerId).toEqual('123');
       expect(playerStore.newPlayer.error).toEqual(undefined);
       expect(playerStore.newPlayer.loading).toEqual(false);

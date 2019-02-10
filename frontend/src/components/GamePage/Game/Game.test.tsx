@@ -31,6 +31,8 @@ describe('<Game />', () => {
               cards={cardsMap}
               loadGameFunction={jest.fn()}
               joinGameFunction={jest.fn()}
+              addPlayerFunction={jest.fn()}
+              removePlayerFunction={jest.fn()}
             />
           </Provider>
         </MemoryRouter>
@@ -48,6 +50,8 @@ describe('<Game />', () => {
           cards={cards}
           loadGameFunction={jest.fn()}
           joinGameFunction={jest.fn()}
+          addPlayerFunction={jest.fn()}
+          removePlayerFunction={jest.fn()}
         />
       );
       expect(component.toJSON()).toMatchSnapshot();
@@ -63,6 +67,8 @@ describe('<Game />', () => {
           cards={cards}
           loadGameFunction={jest.fn()}
           joinGameFunction={jest.fn()}
+          addPlayerFunction={jest.fn()}
+          removePlayerFunction={jest.fn()}
         />
       );
       expect(component.toJSON()).toMatchSnapshot();
@@ -83,6 +89,8 @@ describe('<Game />', () => {
           cards={cards}
           loadGameFunction={loadGameFunction}
           joinGameFunction={jest.fn()}
+          addPlayerFunction={jest.fn()}
+          removePlayerFunction={jest.fn()}
         />
       );
 
@@ -100,6 +108,8 @@ describe('<Game />', () => {
           cards={cards}
           loadGameFunction={jest.fn()}
           joinGameFunction={joinGameFunction}
+          addPlayerFunction={jest.fn()}
+          removePlayerFunction={jest.fn()}
         />
       );
 
@@ -117,6 +127,8 @@ describe('<Game />', () => {
           cards={cards}
           loadGameFunction={jest.fn()}
           joinGameFunction={joinGameFunction}
+          addPlayerFunction={jest.fn()}
+          removePlayerFunction={jest.fn()}
         />
       );
 

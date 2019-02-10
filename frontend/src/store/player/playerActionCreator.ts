@@ -1,13 +1,18 @@
 import {ActionCreator, Dispatch} from 'redux';
 import apiFetch from '../../common/apiFetch';
 import {
-  AddPlayerFailureAction,
-  AddPlayerRequestAction,
-  AddPlayerSuccessAction, RemovePlayerFailureAction,
-  RemovePlayerRequestAction, RemovePlayerSuccessAction,
+  AddPlayerAction,
+  ExitPlayerFailureAction,
+  ExitPlayerRequestAction,
+  ExitPlayerSuccessAction,
+  NewPlayerFailureAction,
+  NewPlayerRequestAction,
+  NewPlayerSuccessAction,
+  RemovePlayerAction,
   SetPlayersAction
 } from './PlayerAction';
 import PlayerData from '../../models/PlayerData';
+import socket from '../../common/socket';
 
 export const setPlayers: ActionCreator<SetPlayersAction> = (players: PlayerData[]) => ({
   type: '@@player/SET_PLAYERS',
@@ -15,36 +20,46 @@ export const setPlayers: ActionCreator<SetPlayersAction> = (players: PlayerData[
 });
 
 
-const addPlayerRequest: ActionCreator<AddPlayerRequestAction> = () => ({
-  type: '@@player/ADD_PLAYER_REQUEST'
+const addPlayerRequest: ActionCreator<NewPlayerRequestAction> = () => ({
+  type: '@@player/NEW_PLAYER_REQUEST'
 });
 
 
-const addPlayerSuccess: ActionCreator<AddPlayerSuccessAction> = (playerId: string) => ({
-  type: '@@player/ADD_PLAYER_SUCCESS',
+const addPlayerSuccess: ActionCreator<NewPlayerSuccessAction> = (playerId: string) => ({
+  type: '@@player/NEW_PLAYER_SUCCESS',
   playerId
 });
 
-const addPlayerFailure: ActionCreator<AddPlayerFailureAction> = (error: Error) => ({
-  type: '@@player/ADD_PLAYER_FAILURE',
+const addPlayerFailure: ActionCreator<NewPlayerFailureAction> = (error: Error) => ({
+  type: '@@player/NEW_PLAYER_FAILURE',
   error
 });
 
-const removePlayerRequest: ActionCreator<RemovePlayerRequestAction> = () => ({
-  type: '@@player/REMOVE_PLAYER_REQUEST'
+const exitPlayerRequest: ActionCreator<ExitPlayerRequestAction> = () => ({
+  type: '@@player/EXIT_PLAYER_REQUEST'
 });
 
 
-const removePlayerSuccess: ActionCreator<RemovePlayerSuccessAction> = () => ({
-  type: '@@player/REMOVE_PLAYER_SUCCESS'
+const exitPlayerSuccess: ActionCreator<ExitPlayerSuccessAction> = () => ({
+  type: '@@player/EXIT_PLAYER_SUCCESS'
 });
 
-const removePlayerFailure: ActionCreator<RemovePlayerFailureAction> = (error: Error) => ({
-  type: '@@player/REMOVE_PLAYER_FAILURE',
+const exitPlayerFailure: ActionCreator<ExitPlayerFailureAction> = (error: Error) => ({
+  type: '@@player/EXIT_PLAYER_FAILURE',
   error
 });
 
-export function addPlayer(gameId: string) {
+export const addPlayer: ActionCreator<AddPlayerAction> = (player: PlayerData) => ({
+  type: '@@player/ADD_PLAYER',
+  player
+});
+
+export const removePlayer: ActionCreator<RemovePlayerAction> = (player: PlayerData) => ({
+  type: '@@player/REMOVE_PLAYER',
+  player
+});
+
+export function newPlayer(gameId: string) {
   return (dispatch: Dispatch) => {
     dispatch(addPlayerRequest());
     return apiFetch('/player',
@@ -66,16 +81,17 @@ export function addPlayer(gameId: string) {
   }
 }
 
-export function removePlayer() {
+export function exitPlayer() {
   return (dispatch: Dispatch) => {
-    dispatch(removePlayerRequest());
-    return apiFetch(`/player/me`,
-      {
-        method: 'delete'
-      })
-      .then(() => dispatch(removePlayerSuccess()))
-      .catch(ex =>
-        dispatch(removePlayerFailure(ex))
-      )
+    dispatch(exitPlayerRequest());
+    return new Promise((resolve) => socket.delete(`/player/me`,
+      (resData: any, jwres: any) => {
+        if (jwres.statusCode === 200) {
+          dispatch(exitPlayerSuccess());
+        } else {
+          dispatch(exitPlayerFailure(new Error('Status code is not 200')))
+        }
+        resolve();
+      }))
   }
 }
