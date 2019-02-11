@@ -7,7 +7,7 @@ exports[`<PlayerArea /> Snapshots renders empty player area correctly 1`] = `
   <div
     className="player-info"
   >
-    some-name
+    someName
     -
     d
   </div>
@@ -29,7 +29,7 @@ exports[`<PlayerArea /> Snapshots renders player area with cards correctly 1`] =
   <div
     className="player-info"
   >
-    some-name
+    someName
     -
     d
   </div>

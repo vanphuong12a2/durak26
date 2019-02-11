@@ -1,15 +1,29 @@
 import playerReducer from './playerReducer';
-import {aPlayer} from '../../common/TestData';
+import {anotherPlayer, aPlayer} from '../../common/TestData';
 
 describe('player reducer', () => {
 
-  it('should set players', () => {
-    const players = [aPlayer];
-    const playerStore = playerReducer(undefined, {type: '@@player/SET_PLAYERS', players});
-    expect(playerStore.players).toEqual(players);
+  describe('players', () => {
+    it('should set players', () => {
+      const players = [aPlayer];
+      const playerStore = playerReducer(undefined, {type: '@@player/SET_PLAYERS', players});
+      expect(playerStore.players).toEqual(players);
+    });
+
+    it('should add a player', () => {
+      const players = [aPlayer];
+      const playerStore = playerReducer({players, newPlayer: {loading: false}}, {type: '@@player/ADD_PLAYER', player: anotherPlayer});
+      expect(playerStore.players).toEqual([aPlayer, anotherPlayer]);
+    });
+
+    it('should remove a player', () => {
+      const players = [aPlayer, anotherPlayer];
+      const playerStore = playerReducer({players, newPlayer: {loading: false}}, {type: '@@player/REMOVE_PLAYER', player: anotherPlayer});
+      expect(playerStore.players).toEqual([aPlayer]);
+    });
   });
 
-  describe('add player', () => {
+  describe('new player', () => {
 
     it('should change to loading state', () => {
       const playerStore = playerReducer(undefined, {type: '@@player/NEW_PLAYER_REQUEST'});

@@ -56,10 +56,6 @@ describe('game actions creator', () => {
 
   describe('load game async actions', () => {
 
-    afterEach(() => {
-      fetchMock.restore()
-    });
-
     it('creates LOAD_GAME_SUCCESS when adding game has been done', () => {
       const gameId = '123';
 

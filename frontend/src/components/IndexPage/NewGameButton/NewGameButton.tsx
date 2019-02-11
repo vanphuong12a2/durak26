@@ -25,7 +25,7 @@ const NewGameButton = (props: GamesProps & RouteComponentProps) => {
 
   return (
     <div className='new-game'>
-      <a className='waves-effect waves-light btn-small' onClick={props.newGameButtonOnClick}>New game</a>
+      <a id='new-game-btn' className='waves-effect waves-light btn-small' onClick={props.newGameButtonOnClick}>New game</a>
     </div>
   );
 };

@@ -12,14 +12,14 @@ const testSocket: any = socket;
 
 describe('player actions creator', () => {
 
-  describe('add player async actions', () => {
+  describe('new player async actions', () => {
 
     afterEach(() => {
       fetchMock.restore()
     });
 
     const gameId = '123';
-    it('creates ADD_PLAYER_SUCCESS when adding player has been done', () => {
+    it('creates NEW_PLAYER_SUCCESS when adding player has been done', () => {
       fetchMock.postOnce('/player', {
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({
@@ -41,7 +41,7 @@ describe('player actions creator', () => {
       })
     });
 
-    it('creates ADD_PLAYER_FAILURE when adding player has failed', () => {
+    it('creates NEW_PLAYER_FAILURE when adding player has failed', () => {
       fetchMock.postOnce('/player', {
         status: 404
       });
@@ -59,11 +59,7 @@ describe('player actions creator', () => {
     })
   });
 
-  describe('remove player async actions', () => {
-
-    afterEach(() => {
-      fetchMock.restore()
-    });
+  describe('remove the current player async actions', () => {
 
     it('creates EXIT_PLAYER_SUCCESS when removing the current player has been done', () => {
       testSocket.delete.mockImplementation(
@@ -81,7 +77,7 @@ describe('player actions creator', () => {
       })
     });
 
-    it('creates EXIT_PLAYER_FAILURE when removing the  current player has failed', () => {
+    it('creates EXIT_PLAYER_FAILURE when removing the current player has failed', () => {
       testSocket.delete.mockImplementation(
         (url: string, cb: (resData: any, jwres: any) => void) => cb({}, {statusCode: 500})
       );
