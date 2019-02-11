@@ -1,10 +1,10 @@
-import fetchMock from 'fetch-mock';
-import {freshTestStore} from '../../common/TestData';
+import {aPlayer, freshTestStore} from '../../common/TestData';
 import {exitPlayer, newPlayer} from './playerActionCreator';
 import socket from '../../common/socket';
 
 jest.mock('../../common/socket', () => {
   return {
+    post: jest.fn(),
     delete: jest.fn()
   }
 });
@@ -14,25 +14,16 @@ describe('player actions creator', () => {
 
   describe('new player async actions', () => {
 
-    afterEach(() => {
-      fetchMock.restore()
-    });
-
     const gameId = '123';
     it('creates NEW_PLAYER_SUCCESS when adding player has been done', () => {
-      fetchMock.postOnce('/player', {
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify({
-          id: '123',
-          name: '123',
-          numberOfCards: 0,
-          cards: [{value: '1', suit: 'H'}]
-        })
-      });
+      testSocket.post.mockImplementation(
+        (url: string, data: any, cb: (resData: any, jwres: any) => void) => cb(aPlayer, {statusCode: 200})
+      );
 
       const expectedActions = [
         {type: '@@player/NEW_PLAYER_REQUEST'},
-        {type: '@@player/NEW_PLAYER_SUCCESS', playerId: '123'},
+        {type: '@@player/NEW_PLAYER_SUCCESS', playerId: aPlayer.id},
+        {type: '@@player/ADD_PLAYER', player: aPlayer},
       ];
 
       const store = freshTestStore();
@@ -42,9 +33,9 @@ describe('player actions creator', () => {
     });
 
     it('creates NEW_PLAYER_FAILURE when adding player has failed', () => {
-      fetchMock.postOnce('/player', {
-        status: 404
-      });
+      testSocket.post.mockImplementation(
+        (url: string, data: any, cb: (resData: any, jwres: any) => void) => cb({}, {statusCode: 404})
+      );
 
       const expectedActions = [
         {type: '@@player/NEW_PLAYER_REQUEST'},

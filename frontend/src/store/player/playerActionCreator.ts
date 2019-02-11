@@ -1,5 +1,4 @@
 import {ActionCreator, Dispatch} from 'redux';
-import apiFetch from '../../common/apiFetch';
 import {
   AddPlayerAction,
   ExitPlayerFailureAction,
@@ -62,22 +61,17 @@ export const removePlayer: ActionCreator<RemovePlayerAction> = (player: PlayerDa
 export function newPlayer(gameId: string) {
   return (dispatch: Dispatch) => {
     dispatch(addPlayerRequest());
-    return apiFetch('/player',
-      {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: 'player',
-          gameId
-        })
-      })
-      .then(payload => {
-        dispatch(addPlayerSuccess(payload.id));
-      })
-      .catch(error => dispatch(addPlayerFailure(error)))
+    return new Promise((resolve) => socket.post(`/player`,
+      {name: 'player', gameId},
+      (resData: PlayerData, jwres: any) => {
+        if (jwres.statusCode === 200) {
+          dispatch(addPlayerSuccess(resData.id));
+          dispatch(addPlayer(resData));
+        } else {
+          dispatch(addPlayerFailure(new Error('Status code is not 200')))
+        }
+        resolve();
+      }));
   }
 }
 

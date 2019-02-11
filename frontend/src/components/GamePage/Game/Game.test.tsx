@@ -80,6 +80,7 @@ describe('<Game />', () => {
 
     it('should load players & cards on mounting', () => {
       const loadGameFunction = jest.fn();
+      const joinGameFunction = jest.fn();
       shallow(
         <Game
           gameId={'123'}
@@ -88,51 +89,14 @@ describe('<Game />', () => {
           newPlayer={{loading: true}}
           cards={cards}
           loadGameFunction={loadGameFunction}
-          joinGameFunction={jest.fn()}
+          joinGameFunction={joinGameFunction}
           addPlayerFunction={jest.fn()}
           removePlayerFunction={jest.fn()}
         />
       );
 
       expect(loadGameFunction).toBeCalledTimes(1);
-    });
-
-    it('join game when playerId is not defined', () => {
-      const joinGameFunction = jest.fn();
-      shallow(
-        <Game
-          gameId={'123'}
-          loading={false}
-          players={[]}
-          newPlayer={{loading: false}}
-          cards={cards}
-          loadGameFunction={jest.fn()}
-          joinGameFunction={joinGameFunction}
-          addPlayerFunction={jest.fn()}
-          removePlayerFunction={jest.fn()}
-        />
-      );
-
       expect(joinGameFunction).toBeCalledTimes(1);
-    });
-
-    it('should NOT join game when playerId is defined', () => {
-      const joinGameFunction = jest.fn();
-      shallow(
-        <Game
-          gameId={'123'}
-          loading={false}
-          newPlayer={{playerId: 'somePlayer', loading: false}}
-          players={[]}
-          cards={cards}
-          loadGameFunction={jest.fn()}
-          joinGameFunction={joinGameFunction}
-          addPlayerFunction={jest.fn()}
-          removePlayerFunction={jest.fn()}
-        />
-      );
-
-      expect(joinGameFunction).toBeCalledTimes(0);
     });
   });
 });

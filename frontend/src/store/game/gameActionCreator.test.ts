@@ -1,11 +1,11 @@
-import fetchMock from 'fetch-mock';
 import {cards, freshTestStore} from '../../common/TestData';
 import {addGame, loadGame} from './gameActionCreator';
 import socket from '../../common/socket';
 
 jest.mock('../../common/socket', () => {
   return {
-    get: jest.fn()
+    get: jest.fn(),
+    post: jest.fn()
   }
 });
 const testSocket: any = socket;
@@ -14,15 +14,10 @@ describe('game actions creator', () => {
 
   describe('add game async actions', () => {
 
-    afterEach(() => {
-      fetchMock.restore()
-    });
-
     it('creates ADD_GAME_SUCCESS when adding game has been done', () => {
-      fetchMock.postOnce('/game', {
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify({id: '123'})
-      });
+      testSocket.post.mockImplementation(
+        (url: string, data: any, cb: (resData: any, jwres: any) => void) => cb({id: '123'}, {statusCode: 200})
+      );
 
       const expectedActions = [
         {type: '@@game/ADD_GAME_REQUEST'},
@@ -37,13 +32,13 @@ describe('game actions creator', () => {
     });
 
     it('creates ADD_GAME_FAILURE when adding game has failed', () => {
-      fetchMock.postOnce('/game', {
-        status: 404
-      });
+      testSocket.post.mockImplementation(
+        (url: string, data: any, cb: (resData: any, jwres: any) => void) => cb({}, {statusCode: 404})
+      );
 
       const expectedActions = [
         {type: '@@game/ADD_GAME_REQUEST'},
-        {type: '@@game/ADD_GAME_FAILURE', error: new Error('Status code is not 200')}
+        {type: '@@game/ADD_GAME_FAILURE', error: new Error('Add game failed!')}
       ];
 
       const store = freshTestStore();

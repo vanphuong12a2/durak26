@@ -29,11 +29,9 @@ export interface GameProps {
 class Game extends React.Component<GameProps> {
 
   public componentDidMount() {
-    this.props.loadGameFunction(this.props.gameId);
 
-    if (!this.props.newPlayer.playerId) {
-      this.props.joinGameFunction(this.props.gameId);
-    }
+    this.props.loadGameFunction(this.props.gameId);
+    this.props.joinGameFunction(this.props.gameId);
 
     socket.on('addPlayer', (player: PlayerData) => {
       console.log('Player `' + player.id + '` joined the party!');

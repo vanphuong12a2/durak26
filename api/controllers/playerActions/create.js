@@ -14,13 +14,8 @@ module.exports = async (req, res) => {
     gameId: createdPlayer.gameId
   };
 
-  const filterPlayer = {
-    ...createdPlayer,
-    cards: createdPlayer.cards.map(() => constant.hiddenCard)
-  };
-
   if (req.isSocket) {
-    sails.sockets.broadcast(createdPlayer.gameId, 'addPlayer', filterPlayer, req);
+    sails.sockets.broadcast(createdPlayer.gameId, 'addPlayer', createdPlayer, req);
   }
 
   return res.json(createdPlayer);

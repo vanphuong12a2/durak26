@@ -7,7 +7,6 @@ import {
   LoadGameRequestAction,
   LoadGameSuccessAction
 } from './GameAction';
-import apiFetch from '../../common/apiFetch';
 import {setCards} from '../card/cardActionCreator';
 import {setPlayers} from '../player/playerActionCreator';
 import socket from '../../common/socket';
@@ -30,17 +29,16 @@ const addGameFailure: ActionCreator<AddGameFailureAction> = (error: Error) => ({
 export function addGame() {
   return (dispatch: Dispatch) => {
     dispatch(addGameRequest());
-    return apiFetch('/game',
-      {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({})
-      })
-      .then(payload => dispatch(addGameSuccess(payload.id)))
-      .catch(ex => dispatch(addGameFailure(ex)))
+    return new Promise((resolve) => socket.post(`/game`,
+      {},
+      (resData: any, jwres: any) => {
+        if (jwres.statusCode === 200) {
+          dispatch(addGameSuccess(resData.id));
+        } else {
+          dispatch(addGameFailure(new Error('Add game failed!')));
+        }
+        resolve();
+      }));
   }
 }
 
