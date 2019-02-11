@@ -67,7 +67,22 @@ export function loadGame(gameId: string) {
           dispatch(setPlayers(resData.players));
           dispatch(loadGameSuccess());
         } else {
-          dispatch(loadGameFailure(new Error('Status code is not 200')));
+          dispatch(loadGameFailure(new Error('Load game failed!')));
+        }
+        resolve();
+      }));
+  }
+}
+
+export function serveGame() {
+  return (dispatch: Dispatch) => {
+    dispatch(loadGameRequest());
+    return new Promise((resolve) => socket.post(`/serve`,
+      (resData: any, jwres: any) => {
+        if (jwres.statusCode === 200) {
+          dispatch(loadGameSuccess());
+        } else {
+          dispatch(loadGameFailure(new Error('Serve game failed!')));
         }
         resolve();
       }));

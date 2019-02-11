@@ -16,7 +16,7 @@ module.exports = {
     },
     cards: {
       type: 'json',
-      defaultsTo: {[constant.CardPosition.TO_DEAL]: sails.helpers.generateCards()},
+      defaultsTo: {[constant.CardPosition.TO_DEAL]: new Array(52)},
     },
     players: {
       collection: 'player',

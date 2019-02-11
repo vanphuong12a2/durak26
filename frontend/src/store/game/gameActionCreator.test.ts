@@ -93,7 +93,7 @@ describe('game actions creator', () => {
 
       const expectedActions = [
         {type: '@@game/LOAD_GAME_REQUEST'},
-        {type: '@@game/LOAD_GAME_FAILURE', error: new Error('Status code is not 200')}
+        {type: '@@game/LOAD_GAME_FAILURE', error: new Error('Load game failed!')}
       ];
 
       const store = freshTestStore();

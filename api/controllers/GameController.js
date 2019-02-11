@@ -7,6 +7,6 @@
 
 module.exports = {
   create: require('./gameActions/create'),
-  findOne: require('./gameActions/findOne')
+  findOne: require('./gameActions/findOne'),
+  serve: require('./gameActions/serve')
 };
-

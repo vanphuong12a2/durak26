@@ -24,6 +24,7 @@ module.exports.routes = {
   'POST /game': 'GameController.create',
   'GET /game/:id': 'GameController.findOne',
   'DELETE /game/:id': 'GameController.destroy',
+  'POST /serve': 'GameController.serve',
 
   'POST /player': 'PlayerController.create',
   'GET /player/me': 'PlayerController.findMe',

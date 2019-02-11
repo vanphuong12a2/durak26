@@ -44,6 +44,11 @@ class Game extends React.Component<GameProps> {
       console.log('Player `' + player.id + '` left the party!');
       this.props.removePlayerFunction(player);
     });
+
+    socket.on('updateGame', () => {
+      console.log('Game `' + this.props.gameId + '` got updated!');
+      this.props.loadGameFunction(this.props.gameId);
+    });
   }
 
   public render = () => {

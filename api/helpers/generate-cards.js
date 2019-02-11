@@ -26,7 +26,7 @@ module.exports = {
 
     suits.forEach((suit) => {
       values.forEach((value) => {
-        cards.push({value: value, suit: suit});
+        cards.push(value + suit);
       });
     });
 
