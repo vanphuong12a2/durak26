@@ -21,6 +21,7 @@ export interface CardState {
 }
 
 export interface GameState {
+  gameId?: string
   loading: boolean
   error?: Error
   newGame: {

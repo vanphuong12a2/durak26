@@ -86,3 +86,18 @@ export function serveGame() {
       }));
   }
 }
+
+export function getCurrentGame() {
+  return (dispatch: Dispatch) => {
+    dispatch(loadGameRequest());
+    return new Promise((resolve) => socket.get(`/player/me`,
+      (resData: any, jwres: any) => {
+        if (jwres.statusCode === 200) {
+          dispatch(addGameSuccess(resData.gameId));
+        } else {
+          dispatch(loadGameFailure(new Error('Get current game failed!')));
+        }
+        resolve();
+      }));
+  }
+}
