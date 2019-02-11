@@ -12,7 +12,16 @@ module.exports = async (req, res) => {
       cards: {
         ...game.cards,
         [constant.CardPosition.TO_DEAL]: game.cards[constant.CardPosition.TO_DEAL].map(() => constant.hiddenCard)
-      }
+      },
+      players: game.players.map(player => {
+        if (req.session.currentPlayer && req.session.currentPlayer.playerId === player.id) {
+          return player;
+        }
+        return {
+          ...player,
+          cards: player.cards.map(() => constant.hiddenCard)
+        };
+      })
     };
 
     return res.json(filteredGame);

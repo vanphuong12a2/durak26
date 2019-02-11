@@ -19,13 +19,13 @@ module.exports = async (req, res) => {
     cards: {
       ...game.cards,
       [constant.CardPosition.TO_DEAL]: allCards.slice(game.players.length * constant.NUMBER_OF_CARDS_FOR_EACH_PLAYER + 1, allCards.length).map(() => constant.hiddenCard),
-      [constant.CardPosition.TRUMP]: allCards[game.players.length * constant.NUMBER_OF_CARDS_FOR_EACH_PLAYER]
+      [constant.CardPosition.TRUMP]: [allCards[game.players.length * constant.NUMBER_OF_CARDS_FOR_EACH_PLAYER]]
     },
     players: game.players.map(player => player.id)
   };
   await Game.updateOne({id: gameId}).set(servedGame);
 
-  game.players.map(async (player, index) => {
+  game.players.forEach(async (player, index) => {
     await Player.updateOne({id: player.id}).set(
       {
         ...player,
