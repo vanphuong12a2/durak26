@@ -7,7 +7,8 @@ import {withRouter} from 'react-router';
 import {serveGame} from '../store/game/gameActionCreator';
 
 const mapStateToProps = (state: ApplicationState) => ({
-  playing: state.game.playing
+  playing: state.game.playing,
+  currentPlayerId: state.player.currentPlayer.playerId
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

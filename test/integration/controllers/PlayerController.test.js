@@ -17,6 +17,9 @@ describe('PlayerController', function () {
     it('should return 403 Forbidden', function (done) {
       testSession
         .post('/player')
+        .send({
+          gameId: '332c2b97bac0595474108bab'
+        })
         .expect(403, done);
     });
   });

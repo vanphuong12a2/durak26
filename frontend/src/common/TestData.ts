@@ -31,7 +31,7 @@ export const getInitialApplicationState = () => (
     },
     player: {
       players: [],
-      newPlayer: {
+      currentPlayer: {
         loading: false
       }
     }

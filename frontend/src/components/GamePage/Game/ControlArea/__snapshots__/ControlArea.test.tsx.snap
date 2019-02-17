@@ -5,6 +5,20 @@ exports[`<ControlArea /> Snapshots renders correctly 1`] = `
   className="control-area"
 >
   <a
+    className="waves-effect waves-light red lighten-2 btn-small"
+    id="exit-game-btn"
+    onClick={[Function]}
+  >
+    Exit
+  </a>
+</div>
+`;
+
+exports[`<ControlArea /> Snapshots renders correctly without Start game button 1`] = `
+<div
+  className="control-area"
+>
+  <a
     className="waves-effect waves-light btn-small"
     id="start-game-btn"
     onClick={[MockFunction]}

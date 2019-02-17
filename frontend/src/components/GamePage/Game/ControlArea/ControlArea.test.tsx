@@ -21,6 +21,19 @@ describe('<ControlArea />', () => {
       />);
       expect(component.toJSON()).toMatchSnapshot();
     });
+
+    it('renders correctly without Start game button', () => {
+      const component = create(<ControlArea
+        playing={false}
+        currentPlayerId={'someId'}
+        exitGameFunction={jest.fn()}
+        serveGameFunction={jest.fn()}
+        history={history}
+        location={history.location}
+        match={match}
+      />);
+      expect(component.toJSON()).toMatchSnapshot();
+    });
   });
 
   describe('exit button', () => {

@@ -9,7 +9,7 @@ export interface ApplicationState {
 
 export interface PlayerState {
   players: PlayerData[]
-  newPlayer: {
+  currentPlayer: {
     playerId?: string
     loading: boolean
     error?: Error
