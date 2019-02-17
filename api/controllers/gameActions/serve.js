@@ -10,9 +10,7 @@ module.exports = async (req, res) => {
   const gameId = currentPlayer.gameId;
 
   const game = await Game.findOne({id: gameId}).populate('players');
-  if (game.playing) {
-    return res.forbidden();
-  }
+
   const allCards = sails.helpers.generateCards();
   const servedGame = {
     ...game,
