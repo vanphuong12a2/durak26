@@ -11,12 +11,14 @@ const initialState: GameState = {
 
 const gameReducer = (state: GameState = initialState, action: GameAction) => {
   switch (action.type) {
-    case '@@game/LOAD_GAME_REQUEST':
+    case '@@game/GAME_REQUEST':
       return {...state, loading: true};
-    case '@@game/LOAD_GAME_SUCCESS':
-      return {...state, loading: false};
-    case '@@game/LOAD_GAME_FAILURE':
+    case '@@game/GAME_FAILURE':
       return {...state, loading: false, error: action.error};
+    case '@@game/LOAD_GAME_SUCCESS':
+      return {...state, loading: false, playing: action.playing};
+    case '@@game/SERVE_GAME_SUCCESS':
+      return {...state, playing: true};
     case '@@game/ADD_GAME_REQUEST':
       return {...state, newGame: {...state.newGame, loading: true, error: undefined}};
     case '@@game/ADD_GAME_SUCCESS':

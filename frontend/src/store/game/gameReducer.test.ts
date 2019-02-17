@@ -5,18 +5,19 @@ describe('game reducer', () => {
   describe('load game', () => {
 
     it('should change to loading state', () => {
-      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_REQUEST'});
+      const gameStore = gameReducer(undefined, {type: '@@game/GAME_REQUEST'});
       expect(gameStore.loading).toEqual(true);
     });
 
     it('should exit loading state ', () => {
-      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_SUCCESS'});
+      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_SUCCESS', playing: true});
       expect(gameStore.loading).toEqual(false);
+      expect(gameStore.playing).toEqual(true);
     });
 
     it('should assign error', () => {
       const error = new Error('someError');
-      const gameStore = gameReducer(undefined, {type: '@@game/LOAD_GAME_FAILURE', error});
+      const gameStore = gameReducer(undefined, {type: '@@game/GAME_FAILURE', error});
       expect(gameStore.loading).toEqual(false);
       expect(gameStore.error).toEqual(error);
     });

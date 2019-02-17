@@ -22,6 +22,7 @@ describe('<Game />', () => {
             <Game
               gameId={'123'}
               loading={false}
+              playing={false}
               newPlayer={{playerId: 'id1', loading: false}}
               players={[
                 new PlayerData('id1', 'Luffy', [aCard, anotherCard]),
@@ -45,6 +46,7 @@ describe('<Game />', () => {
         <Game
           gameId={'123'}
           loading={true}
+          playing={false}
           newPlayer={{playerId: 'somePlayer', loading: false}}
           players={[]}
           cards={cards}
@@ -62,6 +64,7 @@ describe('<Game />', () => {
           gameId={'123'}
           loading={false}
           error={new Error('someError')}
+          playing={false}
           newPlayer={{playerId: 'somePlayer', loading: false}}
           players={[]}
           cards={cards}
@@ -86,6 +89,7 @@ describe('<Game />', () => {
           gameId={'123'}
           loading={false}
           players={[]}
+          playing={false}
           newPlayer={{loading: true}}
           cards={cards}
           loadGameFunction={loadGameFunction}

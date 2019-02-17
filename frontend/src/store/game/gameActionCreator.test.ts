@@ -59,7 +59,8 @@ describe('game actions creator', () => {
           id: 'someId',
           name: 'someName',
         }],
-        cards
+        cards,
+        playing: true
       };
 
       testSocket.get.mockImplementation(
@@ -67,10 +68,10 @@ describe('game actions creator', () => {
       );
 
       const expectedActions = [
-        {type: '@@game/LOAD_GAME_REQUEST'},
+        {type: '@@game/GAME_REQUEST'},
         {type: '@@card/SET_CARDS', cards: gamePayload.cards},
         {type: '@@player/SET_PLAYERS', players: gamePayload.players},
-        {type: '@@game/LOAD_GAME_SUCCESS'},
+        {type: '@@game/LOAD_GAME_SUCCESS', playing: true},
       ];
 
       const store = freshTestStore();
@@ -87,8 +88,8 @@ describe('game actions creator', () => {
       );
 
       const expectedActions = [
-        {type: '@@game/LOAD_GAME_REQUEST'},
-        {type: '@@game/LOAD_GAME_FAILURE', error: new Error('Load game failed!')}
+        {type: '@@game/GAME_REQUEST'},
+        {type: '@@game/GAME_FAILURE', error: new Error('Load game failed!')}
       ];
 
       const store = freshTestStore();

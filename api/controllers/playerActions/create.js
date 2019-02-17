@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     return res.forbidden();
   }
   const game = await Game.findOne({id: req.body.gameId}).populate('players');
-  if (!game || req.session.currentPlayer || game.players.length >= constant.MAX_NUMBER_OF_PLAYERS) {
+  if (!game || req.session.currentPlayer || game.players.length >= constant.MAX_NUMBER_OF_PLAYERS || game.playing) {
     return res.forbidden();
   }
   const createdPlayer = await Player.create(req.body).fetch();

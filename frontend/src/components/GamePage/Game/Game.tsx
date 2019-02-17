@@ -13,6 +13,7 @@ export interface GameProps {
   gameId: string
   loading: boolean
   error?: Error
+  playing: boolean
   newPlayer: {
     playerId?: string
     loading: boolean
@@ -31,12 +32,14 @@ class Game extends React.Component<GameProps> {
   public componentDidMount() {
 
     this.props.loadGameFunction(this.props.gameId);
+
     this.props.joinGameFunction(this.props.gameId);
 
     socket.on('addPlayer', (player: PlayerData) => {
       console.log('Player `' + player.id + '` joined the party!');
       this.props.addPlayerFunction(player);
     });
+
 
     socket.on('removePlayer', (player: PlayerData) => {
       console.log('Player `' + player.id + '` left the party!');
