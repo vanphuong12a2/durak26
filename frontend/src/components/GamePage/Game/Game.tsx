@@ -14,7 +14,7 @@ export interface GameProps {
   loading: boolean
   error?: Error
   playing: boolean
-  newPlayer: {
+  currentPlayer: {
     playerId?: string
     loading: boolean
     error?: Error
@@ -77,13 +77,24 @@ class Game extends React.Component<GameProps> {
   };
 
   private getPlayerAreas = () => {
+
+    const getPlayer = (index: number) => {
+      const currentPlayer = this.props.currentPlayer;
+      if (currentPlayer && index < this.props.players.length) {
+        const currentPlayerIndex = this.props.players.findIndex(player => player.id === currentPlayer.playerId);
+        const shiftedIndex = currentPlayerIndex - index;
+        return this.props.players[shiftedIndex < 0 ? shiftedIndex + this.props.players.length : shiftedIndex]
+      }
+      return this.props.players[index];
+    };
+
     return allPlayerPositions
       .map((playerPosition, index) => {
         return (
           <PlayerArea
             key={index}
             position={playerPosition}
-            player={this.props.players[index]}
+            player={getPlayer(index)}
           />);
       });
   }

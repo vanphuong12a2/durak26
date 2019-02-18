@@ -23,7 +23,7 @@ describe('<Game />', () => {
               gameId={'123'}
               loading={false}
               playing={false}
-              newPlayer={{playerId: 'id1', loading: false}}
+              currentPlayer={{playerId: 'id1', loading: false}}
               players={[
                 new PlayerData('id1', 'Luffy', [aCard, anotherCard]),
                 new PlayerData('id2', 'Sanji', [aCard]),
@@ -47,7 +47,7 @@ describe('<Game />', () => {
           gameId={'123'}
           loading={true}
           playing={false}
-          newPlayer={{playerId: 'somePlayer', loading: false}}
+          currentPlayer={{playerId: 'somePlayer', loading: false}}
           players={[]}
           cards={cards}
           loadGameFunction={jest.fn()}
@@ -61,17 +61,17 @@ describe('<Game />', () => {
 
     it('renders loading state correctly', () => {
       const component = create(<Game
-          gameId={'123'}
-          loading={false}
-          error={new Error('someError')}
-          playing={false}
-          newPlayer={{playerId: 'somePlayer', loading: false}}
-          players={[]}
-          cards={cards}
-          loadGameFunction={jest.fn()}
-          joinGameFunction={jest.fn()}
-          addPlayerFunction={jest.fn()}
-          removePlayerFunction={jest.fn()}
+        gameId={'123'}
+        loading={false}
+        error={new Error('someError')}
+        playing={false}
+        currentPlayer={{playerId: 'somePlayer', loading: false}}
+        players={[]}
+        cards={cards}
+        loadGameFunction={jest.fn()}
+        joinGameFunction={jest.fn()}
+        addPlayerFunction={jest.fn()}
+        removePlayerFunction={jest.fn()}
         />
       );
       expect(component.toJSON()).toMatchSnapshot();
@@ -90,7 +90,7 @@ describe('<Game />', () => {
           loading={false}
           players={[]}
           playing={false}
-          newPlayer={{loading: true}}
+          currentPlayer={{loading: true}}
           cards={cards}
           loadGameFunction={loadGameFunction}
           joinGameFunction={joinGameFunction}

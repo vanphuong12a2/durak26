@@ -5,4 +5,4 @@ export enum PlayerPosition {
   LEFT = 'LEFT',
 }
 
-export const allPlayerPositions = [PlayerPosition.BOTTOM, PlayerPosition.TOP, PlayerPosition.RIGHT, PlayerPosition.LEFT];
+export const allPlayerPositions = [PlayerPosition.BOTTOM, PlayerPosition.RIGHT, PlayerPosition.TOP, PlayerPosition.LEFT];

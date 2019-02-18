@@ -38,10 +38,10 @@ exports[`<GamePage /> Snapshots renders correctly 1`] = `
       className="player-area bottom"
     />
     <div
-      className="player-area top"
+      className="player-area right"
     />
     <div
-      className="player-area right"
+      className="player-area top"
     />
     <div
       className="player-area left"

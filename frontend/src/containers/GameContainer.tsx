@@ -11,7 +11,7 @@ const mapStateToProps = (state: ApplicationState, ownProps: { gameId: string }) 
   loading: state.game.loading,
   error: state.game.error,
   playing: state.game.playing,
-  newPlayer: state.player.currentPlayer,
+  currentPlayer: state.player.currentPlayer,
   players: state.player.players,
   cards: state.card.cards,
 });
